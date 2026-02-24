@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAVERICK STONE | LSPD LEADER</title>
+    <title>MAVERICK STONE | LSPD LEADER APPLICATION</title>
     
-    <!-- Logo im Browser-Tab -->
+    <!-- Favicon / Logo im Browser Tab -->
     <link rel="icon" type="image/png" href="https://i.imgur.com">
     
     <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <script src="https://unpkg.com"></script>
+
     <style>
         :root {
-            --bg: #050505;
-            --card: #0d0d0d;
+            --bg: #070707;
+            --card: #111111;
             --blue: #0055ff;
             --red: #ff0000;
             --text: #ffffff;
@@ -24,29 +26,29 @@
 
         /* LOGO OBEN LINKS */
         .top-logo {
-            position: absolute; top: 25px; left: 25px; width: 70px; z-index: 100;
-            filter: drop-shadow(0 0 10px rgba(0, 85, 255, 0.5));
+            position: absolute; top: 20px; left: 20px; width: 90px; z-index: 100;
+            filter: drop-shadow(0 0 15px rgba(0, 85, 255, 0.6));
         }
 
-        /* HERO SECTION */
+        /* HERO MIT LICHT-EFFEKTEN */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
                         url('https://i.imgur.com'); 
-            background-size: cover; background-position: center; position: relative; text-align: center;
+            background-size: cover; background-position: center; position: relative; overflow: hidden; text-align: center;
         }
 
         .hero::after {
             content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(90deg, rgba(0,85,255,0.15), rgba(255,0,0,0.15));
-            animation: sirenShift 2.5s infinite alternate; pointer-events: none;
+            animation: sirenShift 2s infinite alternate; pointer-events: none;
         }
 
-        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.6; } }
+        @keyframes sirenShift { 0% { opacity: 0.2; } 100% { opacity: 0.7; } }
 
         .main-title {
             font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 10vw, 7rem);
-            letter-spacing: 15px; text-transform: uppercase;
+            letter-spacing: 12px; text-transform: uppercase;
             animation: policeFlash 4s infinite linear;
         }
 
@@ -55,55 +57,51 @@
             50% { color: var(--red); text-shadow: 0 0 40px var(--red); }
         }
 
-        /* FIX SLOGAN ANIMATION */
-        .typewriter-box { font-size: 1.3rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; letter-spacing: 1px; }
+        /* FIX SLOGAN LOOP */
+        .typewriter-box { font-size: 1.4rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; }
         .typewriter-text::after { content: "|"; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
         /* SECTIONS */
-        section { padding: 80px 12%; }
-        h2 { font-family: 'Oswald', sans-serif; letter-spacing: 4px; margin-bottom: 30px; border-left: 5px solid var(--blue); padding-left: 15px; }
+        section { padding: 100px 10%; }
+        .akte { background: var(--card); padding: 50px; border-radius: 8px; border: 1px solid #1a1a1a; line-height: 1.8; position: relative; }
+        .akte h3 { color: var(--blue); font-family: 'Oswald'; margin-bottom: 20px; text-transform: uppercase; }
 
-        .akte { background: var(--card); padding: 40px; border-radius: 4px; border: 1px solid #1a1a1a; line-height: 1.8; }
-        .akte strong { color: var(--blue); }
+        /* SKILL BARS */
+        .skill-bar { height: 12px; background: #222; border-radius: 6px; margin: 10px 0 30px; overflow: hidden; }
+        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--red)); transition: 3s ease-in-out; }
 
-        /* ABTEILUNGEN BUTTONS */
-        .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
+        /* ABTEILUNGEN BUTTONS (OHNE EMOJIS) */
+        .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
         .dept-btn {
-            background: #111; padding: 20px; border: 1px solid #222; border-left: 4px solid var(--blue);
-            cursor: pointer; transition: 0.3s; text-align: center; font-weight: bold;
+            background: #111; padding: 20px; border: 1px solid #222; border-left: 5px solid var(--blue);
+            cursor: pointer; transition: 0.3s; text-align: center; font-weight: bold; text-transform: uppercase;
         }
-        .dept-btn:hover { border-left-color: var(--red); transform: translateY(-5px); background: #1a1a1a; }
+        .dept-btn:hover { border-left-color: var(--red); transform: translateY(-5px); background: #1a1a1a; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 
-        .dept-info { 
-            background: #0a0a0a; padding: 35px; border-radius: 8px; border: 1px solid #1a1a1a;
-            margin-top: 20px; display: none; animation: fadeIn 0.5s ease;
-        }
+        .dept-info { background: #0a0a0a; padding: 35px; border-radius: 8px; border: 1px solid #1a1a1a; margin-top: 20px; display: none; animation: fadeIn 0.5s ease; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* RANG LISTE */
-        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 40px; }
+        /* RANG LISTE DIAGRAM */
+        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 50px; }
         .rank-item { 
-            background: #0d0d0d; padding: 12px; border-left: 3px solid var(--blue); 
-            font-size: 0.85rem; transition: 0.3s; cursor: default;
+            background: #0d0d0d; padding: 15px; border-left: 4px solid var(--blue); 
+            font-size: 0.9rem; transition: 0.3s; cursor: default; display: flex; justify-content: space-between;
         }
-        .rank-item:hover { transform: translateX(10px); border-left-color: var(--red); background: #151515; }
-        .high-cmd { color: var(--gold); border-left-color: var(--gold); font-weight: bold; }
+        .rank-item:hover { transform: translateX(12px); border-left-color: var(--red); background: #151515; box-shadow: -10px 0 20px rgba(255,0,0,0.1); }
+        .high-cmd { color: var(--gold); border-left-color: var(--gold); font-weight: bold; background: rgba(212, 175, 55, 0.05); }
 
         /* FOOTER */
         .footer { text-align: center; padding: 100px 10%; background: #000; }
         .copy-btn { 
-            background: transparent; border: 1px solid var(--blue); color: white; padding: 15px 40px; 
-            cursor: pointer; transition: 0.4s; font-weight: bold; text-transform: uppercase;
+            background: transparent; border: 2px solid var(--blue); color: white; padding: 15px 45px; 
+            cursor: pointer; transition: 0.4s; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
         }
-        .copy-btn:hover { background: var(--blue); box-shadow: 0 0 20px var(--blue); transform: scale(1.05); }
-
+        .copy-btn:hover { background: var(--blue); box-shadow: 0 0 30px var(--blue); transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <img src="https://i.imgur.com" class="top-logo">
+    <img src="https://i.imgur.com" class="top-logo" alt="LSPD Logo">
 
     <div class="hero">
         <div class="hero-content">
@@ -111,105 +109,145 @@
             <div class="typewriter-box">
                 <span class="typewriter-text" id="typewriter"></span>
             </div>
-            <button class="copy-btn" style="margin-top:40px;" onclick="document.getElementById('motivation').scrollIntoView()">Bewerbung einsehen</button>
+            <button class="copy-btn" style="margin-top:50px;" onclick="document.getElementById('personal').scrollIntoView()">Bewerbung Öffnen</button>
         </div>
     </div>
 
-    <!-- PERSÖNLICHES & MOTIVATION -->
-    <section id="motivation">
-        <h2>Persönliche Akte</h2>
+    <!-- PERSÖNLICHE DATEN & FRAGEN -->
+    <section id="personal">
         <div class="akte">
-            <p><strong>Name:</strong> Julian | <strong>Alter:</strong> 15 (Bald 16 am 04.08.) | <strong>Discord:</strong> agrar.julian</p>
-            <p><strong>Onlinezeiten:</strong> Unter der Woche bin ich täglich 4-5h da, am Wochenende gebe ich Vollgas mit bis zu 10h+.</p>
+            <h3>Persönliche Informationen</h3>
+            <p><strong>Reallife Name:</strong> Julian</p>
+            <p><strong>Alter:</strong> 15 (Geistige Reife vorhanden; Vollendung des 16. Lebensjahres am 04. August!)</p>
+            <p><strong>Nickname IC:</strong> Maverick Stone</p>
+            <p><strong>Discord:</strong> agrar.julian</p>
             <br>
-            <p><strong>Warum ich?</strong><br>
-            Ich bewerbe mich als Leader, weil ich nicht nur eine Fraktion verwalten, sondern ein Team aufbauen möchte, das füreinander einsteht. Nach über einem Jahr im LSPD kenne ich jede Ecke von Los Santos und weiß, wie man brenzlige Situationen mit Ruhe und Verstand löst. Mein Ziel ist es, das LSPD auf Mystic RP zur professionellsten, aber auch fairsten Fraktion zu machen. Ich möchte, dass jeder Officer stolz auf seine Marke ist.</p>
+            <p><strong>Durchschnittliche Onlinezeiten:</strong><br>
+            Montag: 2-3h | Dienstag - Donnerstag: 4-5h | Freitag - Samstag: 7-10h | Sonntag: 10h+ Fokuszeit.</p>
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #222;">
+            
+            <h3>Zusätzliche Informationen (Bewerbung)</h3>
+            <p><strong>Organisation:</strong> Leader des Los Santos Police Department (LSPD)</p>
+            <br>
+            <p><strong>Warum möchten Sie Leader werden?</strong><br>
+            Ich möchte das LSPD auf Mystic Roleplay zu einer Bastion der Ordnung und Fairness machen. Durch meine 12+ Monate Erfahrung im Dienst habe ich gesehen, was funktioniert und was nicht. Ich bringe die nötige Ruhe, Disziplin und strategische Denkweise mit, um eine Fraktion dieser Größe nicht nur zu verwalten, sondern aktiv weiterzuentwickeln. Mein Fokus liegt auf einer respektvollen Führungsebene und motivierten Officern.</p>
+            <br>
+            <p><strong>RP-Verbesserungen & Ziele:</strong><br>
+            Mein Ziel ist die Implementierung von tiefgründigem Ermittlungs-Roleplay. Weg von reinem "Gambling-RP" hin zu taktischen Zugriffen und professioneller Tatortarbeit. Wir werden regelmäßige Trainings für Deeskalation und Funkdisziplin einführen, um das Auftreten der Behörde gegenüber den Bürgern und kriminellen Strukturen massiv zu professionalisieren.</p>
+            <br>
+            <p><strong>Führungsebene & Team:</strong><br>
+            Derzeit sind keine Personen fest für hohe Ränge "eingeladen". Ich glaube an das Leistungsprinzip: Bestehende Officer erhalten die Chance, sich durch Aktivität und Kompetenz für die Posten des Assistant Chief oder Deputy Chief zu qualifizieren.</p>
+            <br>
+            <p><strong>Regelwerk:</strong><br>
+            Ich bestätige hiermit, dass ich die Leader-Regeln vollständig gelesen habe und diesen ausnahmslos zustimme.</p>
         </div>
     </section>
 
-    <!-- INTERAKTIVE ABTEILUNGEN -->
+    <!-- SKILLS -->
+    <section style="background: #090909;">
+        <h2 style="font-family:'Oswald'; letter-spacing:4px; text-align:center; margin-bottom:50px;">KOMPETENZ PROFIL</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>Funkdisziplin & Taktik (95%)</p><div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+            <p>Teamfähigkeit & Führung (92%)</p><div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+            <p>Stressresistenz (90%)</p><div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+            <p>Regelwerk-Kenntnisse (100%)</p><div class="skill-bar"><div class="skill-fill" style="width: 100%;"></div></div>
+        </div>
+    </section>
+
+    <!-- ABTEILUNGEN (OHNE EMOJIS) -->
     <section>
-        <h2>Abteilungen & Fokus</h2>
+        <h2 style="font-family:'Oswald'; letter-spacing:4px; text-align:center;">ABTEILUNGEN & KONZEPT</h2>
         <div class="dept-grid">
-            <div class="dept-btn" onclick="showDept('patrol')">🚔 Patrol</div>
-            <div class="dept-btn" onclick="showDept('swat')">⚔ SWAT</div>
-            <div class="dept-btn" onclick="showDept('ia')">🛡 Internal Affairs</div>
-            <div class="dept-btn" onclick="showDept('training')">🎓 Training</div>
+            <div class="dept-btn" onclick="showDept('patrol')">Patrol Division</div>
+            <div class="dept-btn" onclick="showDept('swat')">SWAT Division</div>
+            <div class="dept-btn" onclick="showDept('ia')">Internal Affairs</div>
+            <div class="dept-btn" onclick="showDept('training')">Training Department</div>
         </div>
 
         <div id="dept-box" class="dept-info">
             <h3 id="dept-title" style="color:var(--blue); font-family:'Oswald';"></h3>
-            <p id="dept-text" style="margin-top:15px; color:#ddd;"></p>
+            <p id="dept-text" style="margin-top:15px; color:#ddd; font-style: italic;"></p>
         </div>
     </section>
 
-    <!-- KOMPLETTE RANGLISTE -->
+    <!-- ALLE ROLLEN / RÄNGE (CHIEF = 30) -->
     <section style="background: #080808;">
-        <h2>LSPD Hierarchie (Rang 1-30)</h2>
+        <h2 style="font-family:'Oswald'; letter-spacing:4px; text-align:center; margin-bottom:50px;">🚔 LSPD HIERARCHIE (RANG 30 - 1)</h2>
         <div class="rank-grid">
-            <div class="rank-item high-cmd">Rang 30: Chief of Police</div>
-            <div class="rank-item high-cmd">Rang 29: Assistant Chief</div>
-            <div class="rank-item high-cmd">Rang 28: Deputy Chief</div>
-            <div class="rank-item">Rang 26: Senior Captain</div>
-            <div class="rank-item">Rang 24: Lieutenant</div>
-            <div class="rank-item">Rang 22: Senior Sergeant</div>
-            <div class="rank-item">Rang 20: Training Director</div>
-            <div class="rank-item">Rang 18: SWAT Commander</div>
-            <div class="rank-item">Rang 15: IA Investigator</div>
-            <div class="rank-item">Rang 12: Field Training Officer</div>
-            <div class="rank-item">Rang 10: Senior Officer</div>
-            <div class="rank-item">Rang 08: Patrol Officer</div>
-            <div class="rank-item">Rang 05: Officer II</div>
-            <div class="rank-item">Rang 03: Probationary</div>
-            <div class="rank-item">Rang 01: Recruit</div>
-            <!-- Hier können weitere Ränge flexibel ergänzt werden -->
+            <div class="rank-item high-cmd"><span>Rang 30</span> <span>Chief of Police</span></div>
+            <div class="rank-item high-cmd"><span>Rang 29</span> <span>Assistant Chief of Police</span></div>
+            <div class="rank-item high-cmd"><span>Rang 28</span> <span>Deputy Chief of Police</span></div>
+            
+            <div class="rank-item"><span>Rang 26</span> <span>Senior Captain</span></div>
+            <div class="rank-item"><span>Rang 25</span> <span>Captain</span></div>
+            <div class="rank-item"><span>Rang 24</span> <span>Senior Lieutenant</span></div>
+            <div class="rank-item"><span>Rang 23</span> <span>Lieutenant</span></div>
+            <div class="rank-item"><span>Rang 22</span> <span>Senior Sergeant</span></div>
+            <div class="rank-item"><span>Rang 21</span> <span>Sergeant</span></div>
+
+            <div class="rank-item"><span>Abteilung</span> <span>Training Director</span></div>
+            <div class="rank-item"><span>Abteilung</span> <span>Internal Affairs Director</span></div>
+            <div class="rank-item"><span>Abteilung</span> <span>SWAT Team Leader</span></div>
+            <div class="rank-item"><span>Abteilung</span> <span>Senior Training Officer</span></div>
+            <div class="rank-item"><span>Abteilung</span> <span>Senior SWAT Operator</span></div>
+            
+            <div class="rank-item"><span>Rang 15</span> <span>Field Training Officer (FTO)</span></div>
+            <div class="rank-item"><span>Rang 12</span> <span>SWAT Operator</span></div>
+            <div class="rank-item"><span>Rang 10</span> <span>Internal Affairs Officer</span></div>
+            <div class="rank-item"><span>Rang 08</span> <span>Senior Police Officer</span></div>
+            <div class="rank-item"><span>Rang 07</span> <span>Patrol Officer</span></div>
+            <div class="rank-item"><span>Rang 06</span> <span>Police Officer II</span></div>
+            <div class="rank-item"><span>Rang 05</span> <span>Police Officer I</span></div>
+            
+            <div class="rank-item" style="opacity:0.6;"><span>Rang 03</span> <span>Probationary Officer</span></div>
+            <div class="rank-item" style="opacity:0.6;"><span>Rang 02</span> <span>Police Cadet</span></div>
+            <div class="rank-item" style="opacity:0.6;"><span>Rang 01</span> <span>Police Recruit</span></div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <div class="footer">
-        <h2 style="border:none; text-align:center;">Kontaktieren Sie mich</h2>
-        <p style="margin-bottom:30px; opacity:0.7;">Bereit für ein persönliches Gespräch im Funk oder Discord.</p>
+        <h2 style="font-family:'Oswald'; margin-bottom:20px;">Vielen Dank fürs Lesen!</h2>
+        <p style="margin-bottom:40px; opacity:0.7;">Bei Fragen stehe ich jederzeit im Funk oder via Discord zur Verfügung.</p>
         <button class="copy-btn" onclick="copyDiscord()">Discord: <span id="discord-tag">agrar.julian</span></button>
-        <p id="copy-msg" style="color:var(--blue); margin-top:15px; display:none;">Kopiert & Bereit!</p>
+        <p id="copy-msg" style="color:var(--blue); margin-top:20px; display:none; font-weight:bold;">KOPIERT & BEREIT!</p>
     </div>
 
     <script>
-        // TYPEWRITER LOOP FIX
-        const slogan = "Verantwortung beginnt dort, wo andere zögern.";
+        // SLOGAN ANIMATION FIX (GLEICHMÄSSIGER LOOP)
+        const sloganText = "Verantwortung beginnt dort, wo andere zögern.";
         let charIndex = 0;
         let isDeleting = false;
         const target = document.getElementById("typewriter");
 
-        function type() {
-            const currentSpeed = isDeleting ? 40 : 100;
-            if (!isDeleting && charIndex <= slogan.length) {
-                target.innerHTML = slogan.substring(0, charIndex);
+        function typeLoop() {
+            const speed = isDeleting ? 40 : 100;
+            if (!isDeleting && charIndex <= sloganText.length) {
+                target.innerHTML = sloganText.substring(0, charIndex);
                 charIndex++;
             } else if (isDeleting && charIndex >= 0) {
-                target.innerHTML = slogan.substring(0, charIndex);
+                target.innerHTML = sloganText.substring(0, charIndex);
                 charIndex--;
             }
 
-            if (charIndex === slogan.length + 1) {
+            if (charIndex === sloganText.length + 1) {
                 isDeleting = true;
-                setTimeout(type, 2500);
+                setTimeout(typeLoop, 2500); // Pause am Ende
             } else if (charIndex === -1) {
                 isDeleting = false;
                 charIndex = 0;
-                setTimeout(type, 500);
+                setTimeout(typeLoop, 500); // Pause am Anfang
             } else {
-                setTimeout(type, currentSpeed);
+                setTimeout(typeLoop, speed);
             }
         }
-        type();
+        typeLoop();
 
-        // ABTEILUNGS LOGIK
         const depts = {
-            patrol: ["Patrol Division", "Das Gesicht des LSPD. Hier sorgen wir für Ordnung auf den Straßen, führen Verkehrskontrollen durch und sind die ersten Ansprechpartner für die Bürger von Los Santos."],
-            swat: ["SWAT Division", "Wenn Deeskalation nicht mehr ausreicht. Spezialisiert auf Geiselnahmen, Razzien und den Schutz von Hochrisiko-Transporten. Disziplin ist hier alles."],
-            ia: ["Internal Affairs", "Wir schützen die Marke LSPD von innen. Korruption und Fehlverhalten haben bei uns keinen Platz. Wir sind das Gewissen der Behörde."],
-            training: ["Training Department", "Wissen ist Macht. Wir bilden die nächsten Generationen von Officers aus, führen Schießtrainings durch und prüfen das taktische Verständnis."]
+            patrol: ["Patrol Division", "Dies ist das Rückgrat unserer Behörde. Hier findet das tägliche Roleplay statt. Unsere Officer im Streifendienst sind die ersten Ansprechpartner für Bürger und sorgen durch ständige Präsenz für ein sicheres Gefühl in Los Santos."],
+            swat: ["SWAT Division", "Für die Situationen, in denen Deeskalation nicht mehr ausreicht. Unsere Spezialeinheit wird nur bei Hochrisiko-Einsätzen, Geiselnahmen oder Razzien alarmiert. Hier fordern wir absolute Perfektion am Funk und an der Waffe."],
+            ia: ["Internal Affairs", "Vertrauen ist gut, Kontrolle ist Pflicht. Die IA sorgt dafür, dass das LSPD integer bleibt. Wir prüfen Beschwerden, überwachen Dienstvorschriften und bekämpfen Korruption in den eigenen Reihen."],
+            training: ["Training Department", "Wissen ist unsere stärkste Waffe. Von der Academy-Phase bis zu den Fortbildungen für High Command – das Training Department stellt sicher, dass jeder Beamte auf dem neuesten Stand der Taktik und des Regelwerks ist."]
         };
 
         function showDept(id) {
@@ -217,15 +255,17 @@
             box.style.display = 'block';
             document.getElementById('dept-title').innerText = depts[id][0];
             document.getElementById('dept-text').innerText = depts[id][1];
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // DISCORD COPY
+        // DISCORD COPY FUNCTION
         function copyDiscord() {
             const tag = document.getElementById("discord-tag").innerText;
-            navigator.clipboard.writeText(tag);
-            const msg = document.getElementById("copy-msg");
-            msg.style.display = "block";
-            setTimeout(() => msg.style.display = "none", 2000);
+            navigator.clipboard.writeText(tag).then(() => {
+                const msg = document.getElementById("copy-msg");
+                msg.style.display = "block";
+                setTimeout(() => msg.style.display = "none", 2500);
+            });
         }
     </script>
 </body>
