@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAVERICK STONE | LSPD LEADER</title>
     
-    <!-- Favicon: Das Logo im Browser-Tab -->
+    <!-- Logo im Browser-Tab -->
     <link rel="icon" type="image/png" href="https://i.imgur.com">
     
     <link href="https://fonts.googleapis.com" rel="stylesheet">
@@ -24,8 +24,8 @@
 
         /* LOGO OBEN LINKS */
         .top-logo {
-            position: absolute; top: 20px; left: 20px; width: 80px; z-index: 100;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            position: absolute; top: 25px; left: 25px; width: 70px; z-index: 100;
+            filter: drop-shadow(0 0 10px rgba(0, 85, 255, 0.5));
         }
 
         /* HERO SECTION */
@@ -38,11 +38,11 @@
 
         .hero::after {
             content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(0,85,255,0.2), rgba(255,0,0,0.2));
-            animation: sirenShift 2s infinite alternate; pointer-events: none;
+            background: linear-gradient(90deg, rgba(0,85,255,0.15), rgba(255,0,0,0.15));
+            animation: sirenShift 2.5s infinite alternate; pointer-events: none;
         }
 
-        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.7; } }
+        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.6; } }
 
         .main-title {
             font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 10vw, 7rem);
@@ -55,137 +55,177 @@
             50% { color: var(--red); text-shadow: 0 0 40px var(--red); }
         }
 
-        /* GEFIXTER SLOGAN-LOOP */
-        .typewriter-box { font-size: 1.4rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; }
-        .typewriter-text::after { content: "|"; animation: blink 0.5s infinite; }
+        /* FIX SLOGAN ANIMATION */
+        .typewriter-box { font-size: 1.3rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; letter-spacing: 1px; }
+        .typewriter-text::after { content: "|"; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* ABTEILUNGEN SECTION */
-        section { padding: 80px 10%; }
-        .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px; }
-        
+        /* SECTIONS */
+        section { padding: 80px 12%; }
+        h2 { font-family: 'Oswald', sans-serif; letter-spacing: 4px; margin-bottom: 30px; border-left: 5px solid var(--blue); padding-left: 15px; }
+
+        .akte { background: var(--card); padding: 40px; border-radius: 4px; border: 1px solid #1a1a1a; line-height: 1.8; }
+        .akte strong { color: var(--blue); }
+
+        /* ABTEILUNGEN BUTTONS */
+        .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
         .dept-btn {
             background: #111; padding: 20px; border: 1px solid #222; border-left: 4px solid var(--blue);
-            cursor: pointer; transition: 0.3s; text-align: center; font-weight: bold; font-size: 1.1rem;
+            cursor: pointer; transition: 0.3s; text-align: center; font-weight: bold;
         }
-
-        .dept-btn:hover { 
-            background: #1a1a1a; border-left-color: var(--red); transform: translateY(-5px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
+        .dept-btn:hover { border-left-color: var(--red); transform: translateY(-5px); background: #1a1a1a; }
 
         .dept-info { 
-            background: #0a0a0a; padding: 30px; border-radius: 8px; border: 1px solid #1a1a1a;
-            margin-top: 20px; display: none; animation: slideUp 0.4s ease;
+            background: #0a0a0a; padding: 35px; border-radius: 8px; border: 1px solid #1a1a1a;
+            margin-top: 20px; display: none; animation: fadeIn 0.5s ease;
         }
 
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* RANGLISTE HOVER */
+        /* RANG LISTE */
+        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 40px; }
         .rank-item { 
-            background: #151515; padding: 12px; border-left: 4px solid var(--blue); margin-bottom: 10px;
-            transition: 0.3s; cursor: default;
+            background: #0d0d0d; padding: 12px; border-left: 3px solid var(--blue); 
+            font-size: 0.85rem; transition: 0.3s; cursor: default;
         }
-        .rank-item:hover { transform: translateX(10px); border-left-color: var(--red); background: #1a1a1a; }
+        .rank-item:hover { transform: translateX(10px); border-left-color: var(--red); background: #151515; }
+        .high-cmd { color: var(--gold); border-left-color: var(--gold); font-weight: bold; }
 
+        /* FOOTER */
+        .footer { text-align: center; padding: 100px 10%; background: #000; }
         .copy-btn { 
-            background: #111; border: 1px solid var(--blue); color: white; padding: 15px 30px; 
-            cursor: pointer; transition: 0.3s; margin-top: 20px; font-weight: bold;
+            background: transparent; border: 1px solid var(--blue); color: white; padding: 15px 40px; 
+            cursor: pointer; transition: 0.4s; font-weight: bold; text-transform: uppercase;
         }
-        .copy-btn:hover { background: var(--blue); box-shadow: 0 0 20px var(--blue); }
+        .copy-btn:hover { background: var(--blue); box-shadow: 0 0 20px var(--blue); transform: scale(1.05); }
 
     </style>
 </head>
 <body>
 
-    <!-- LOGO OBEN LINKS -->
-    <img src="https://i.imgur.com" class="top-logo" alt="LSPD Logo">
+    <img src="https://i.imgur.com" class="top-logo">
 
-    <!-- HERO -->
     <div class="hero">
         <div class="hero-content">
             <h1 class="main-title">Maverick Stone</h1>
             <div class="typewriter-box">
                 <span class="typewriter-text" id="typewriter"></span>
             </div>
-            <button class="copy-btn" onclick="document.getElementById('depts').scrollIntoView()">Bewerbung Öffnen</button>
+            <button class="copy-btn" style="margin-top:40px;" onclick="document.getElementById('motivation').scrollIntoView()">Bewerbung einsehen</button>
         </div>
     </div>
 
-    <!-- ABTEILUNGEN -->
-    <section id="depts">
-        <h2 style="font-family:'Oswald'; letter-spacing:5px; text-align:center;">KOMPETENZBEREICHE</h2>
+    <!-- PERSÖNLICHES & MOTIVATION -->
+    <section id="motivation">
+        <h2>Persönliche Akte</h2>
+        <div class="akte">
+            <p><strong>Name:</strong> Julian | <strong>Alter:</strong> 15 (Bald 16 am 04.08.) | <strong>Discord:</strong> agrar.julian</p>
+            <p><strong>Onlinezeiten:</strong> Unter der Woche bin ich täglich 4-5h da, am Wochenende gebe ich Vollgas mit bis zu 10h+.</p>
+            <br>
+            <p><strong>Warum ich?</strong><br>
+            Ich bewerbe mich als Leader, weil ich nicht nur eine Fraktion verwalten, sondern ein Team aufbauen möchte, das füreinander einsteht. Nach über einem Jahr im LSPD kenne ich jede Ecke von Los Santos und weiß, wie man brenzlige Situationen mit Ruhe und Verstand löst. Mein Ziel ist es, das LSPD auf Mystic RP zur professionellsten, aber auch fairsten Fraktion zu machen. Ich möchte, dass jeder Officer stolz auf seine Marke ist.</p>
+        </div>
+    </section>
+
+    <!-- INTERAKTIVE ABTEILUNGEN -->
+    <section>
+        <h2>Abteilungen & Fokus</h2>
         <div class="dept-grid">
             <div class="dept-btn" onclick="showDept('patrol')">🚔 Patrol</div>
             <div class="dept-btn" onclick="showDept('swat')">⚔ SWAT</div>
             <div class="dept-btn" onclick="showDept('ia')">🛡 Internal Affairs</div>
-            <div class="dept-btn" onclick="showDept('training')">🎓 Training Dept.</div>
+            <div class="dept-btn" onclick="showDept('training')">🎓 Training</div>
         </div>
 
         <div id="dept-box" class="dept-info">
-            <h3 id="dept-title" style="color:var(--blue); font-family:'Oswald';">Wähle eine Abteilung</h3>
-            <p id="dept-text" style="margin-top:10px; color:#ccc;">Klicke auf einen der Buttons oben, um Details zu sehen.</p>
+            <h3 id="dept-title" style="color:var(--blue); font-family:'Oswald';"></h3>
+            <p id="dept-text" style="margin-top:15px; color:#ddd;"></p>
         </div>
     </section>
 
-    <!-- DISCORD COPY -->
-    <section style="text-align:center; background:#080808;">
-        <h2 style="font-family:'Oswald'; margin-bottom:20px;">KONTAKT</h2>
-        <p>Fragen? Melde dich direkt bei mir:</p>
-        <button class="copy-btn" onclick="copyDiscord()">Discord: <span id="discord-tag">agrar.julian</span></button>
-        <p id="copy-msg" style="color:var(--blue); margin-top:10px; display:none;">In Zwischenablage kopiert!</p>
+    <!-- KOMPLETTE RANGLISTE -->
+    <section style="background: #080808;">
+        <h2>LSPD Hierarchie (Rang 1-30)</h2>
+        <div class="rank-grid">
+            <div class="rank-item high-cmd">Rang 30: Chief of Police</div>
+            <div class="rank-item high-cmd">Rang 29: Assistant Chief</div>
+            <div class="rank-item high-cmd">Rang 28: Deputy Chief</div>
+            <div class="rank-item">Rang 26: Senior Captain</div>
+            <div class="rank-item">Rang 24: Lieutenant</div>
+            <div class="rank-item">Rang 22: Senior Sergeant</div>
+            <div class="rank-item">Rang 20: Training Director</div>
+            <div class="rank-item">Rang 18: SWAT Commander</div>
+            <div class="rank-item">Rang 15: IA Investigator</div>
+            <div class="rank-item">Rang 12: Field Training Officer</div>
+            <div class="rank-item">Rang 10: Senior Officer</div>
+            <div class="rank-item">Rang 08: Patrol Officer</div>
+            <div class="rank-item">Rang 05: Officer II</div>
+            <div class="rank-item">Rang 03: Probationary</div>
+            <div class="rank-item">Rang 01: Recruit</div>
+            <!-- Hier können weitere Ränge flexibel ergänzt werden -->
+        </div>
     </section>
 
+    <!-- FOOTER -->
+    <div class="footer">
+        <h2 style="border:none; text-align:center;">Kontaktieren Sie mich</h2>
+        <p style="margin-bottom:30px; opacity:0.7;">Bereit für ein persönliches Gespräch im Funk oder Discord.</p>
+        <button class="copy-btn" onclick="copyDiscord()">Discord: <span id="discord-tag">agrar.julian</span></button>
+        <p id="copy-msg" style="color:var(--blue); margin-top:15px; display:none;">Kopiert & Bereit!</p>
+    </div>
+
     <script>
-        // TYPEWRITER FIX (KEIN BESCHLEUNIGEN MEHR)
-        const text = "Verantwortung beginnt dort, wo andere zögern.";
+        // TYPEWRITER LOOP FIX
+        const slogan = "Verantwortung beginnt dort, wo andere zögern.";
         let charIndex = 0;
         let isDeleting = false;
         const target = document.getElementById("typewriter");
 
-        function typeLoop() {
-            const speed = isDeleting ? 50 : 100;
-            if (!isDeleting && charIndex <= text.length) {
-                target.innerHTML = text.substring(0, charIndex);
+        function type() {
+            const currentSpeed = isDeleting ? 40 : 100;
+            if (!isDeleting && charIndex <= slogan.length) {
+                target.innerHTML = slogan.substring(0, charIndex);
                 charIndex++;
             } else if (isDeleting && charIndex >= 0) {
-                target.innerHTML = text.substring(0, charIndex);
+                target.innerHTML = slogan.substring(0, charIndex);
                 charIndex--;
             }
 
-            if (charIndex === text.length + 1) {
+            if (charIndex === slogan.length + 1) {
                 isDeleting = true;
-                setTimeout(typeLoop, 2000);
+                setTimeout(type, 2500);
             } else if (charIndex === -1) {
                 isDeleting = false;
                 charIndex = 0;
-                setTimeout(typeLoop, 500);
+                setTimeout(type, 500);
             } else {
-                setTimeout(typeLoop, speed);
+                setTimeout(type, currentSpeed);
             }
         }
-        typeLoop();
+        type();
 
-        // ABTEILUNGS-LOGIK
-        const deptContent = {
-            patrol: ["Patrol Division", "Das Rückgrat des LSPD. Zuständig für Präsenz, Notrufe und Verkehrskontrollen. Jeder Officer startet hier seine Karriere."],
-            swat: ["SWAT Division", "Spezialeinheit für Hochrisiko-Einsätze, Geiselnahmen und taktische Zugriffe. Nur für die Elite."],
-            ia: ["Internal Affairs", "Überwachung der Integrität. Wir stellen sicher, dass Korruption keine Chance hat und die Regeln eingehalten werden."],
-            training: ["Training Department", "Ausbildung der Academy-Phase. Wir bereiten Recruits auf den harten Alltag auf den Straßen von Los Santos vor."]
+        // ABTEILUNGS LOGIK
+        const depts = {
+            patrol: ["Patrol Division", "Das Gesicht des LSPD. Hier sorgen wir für Ordnung auf den Straßen, führen Verkehrskontrollen durch und sind die ersten Ansprechpartner für die Bürger von Los Santos."],
+            swat: ["SWAT Division", "Wenn Deeskalation nicht mehr ausreicht. Spezialisiert auf Geiselnahmen, Razzien und den Schutz von Hochrisiko-Transporten. Disziplin ist hier alles."],
+            ia: ["Internal Affairs", "Wir schützen die Marke LSPD von innen. Korruption und Fehlverhalten haben bei uns keinen Platz. Wir sind das Gewissen der Behörde."],
+            training: ["Training Department", "Wissen ist Macht. Wir bilden die nächsten Generationen von Officers aus, führen Schießtrainings durch und prüfen das taktische Verständnis."]
         };
 
         function showDept(id) {
-            document.getElementById('dept-box').style.display = 'block';
-            document.getElementById('dept-title').innerText = deptContent[id][0];
-            document.getElementById('dept-text').innerText = deptContent[id][1];
+            const box = document.getElementById('dept-box');
+            box.style.display = 'block';
+            document.getElementById('dept-title').innerText = depts[id][0];
+            document.getElementById('dept-text').innerText = depts[id][1];
         }
 
         // DISCORD COPY
         function copyDiscord() {
             const tag = document.getElementById("discord-tag").innerText;
             navigator.clipboard.writeText(tag);
-            document.getElementById("copy-msg").style.display = "block";
-            setTimeout(() => { document.getElementById("copy-msg").style.display = "none"; }, 2000);
+            const msg = document.getElementById("copy-msg");
+            msg.style.display = "block";
+            setTimeout(() => msg.style.display = "none", 2000);
         }
     </script>
 </body>
