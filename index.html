@@ -1,300 +1,373 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAVERICK STONE | LSPD LEADER BEWERBUNG</title>
-    <script src="https://unpkg.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    <style>
-        :root {
-            --bg-dark: #070707;
-            --card-dark: #111111;
-            --police-blue: #0066ff;
-            --police-red: #aa0000;
-            --accent-glow: rgba(0, 102, 255, 0.3);
-            --text-gray: #b0b0b0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maverick Stone – Bewerbung LSPD</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            overflow-x: hidden;
-        }
+<style>
+:root{
+  --bg:#0f0f0f;
+  --card:#161616;
+  --blue:#0066ff;
+  --red:#aa0000;
+  --text:#ffffff;
+}
 
-        /* Sirenen Hintergrund-Animation */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top left, rgba(0, 102, 255, 0.05), transparent),
-                        radial-gradient(circle at bottom right, rgba(170, 0, 0, 0.05), transparent);
-            z-index: -1;
-            animation: backgroundFlash 6s infinite alternate;
-        }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
 
-        @keyframes backgroundFlash {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.8; }
-        }
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-        /* 1. HERO SECTION */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: black;
-        }
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  background:black;
+  overflow:hidden;
+}
 
-        .swat-overlay {
-            position: absolute;
-            right: 5%;
-            bottom: 0;
-            height: 90vh;
-            filter: grayscale(1) brightness(0.6) blur(2px);
-            animation: swatIn 1.5s ease-out forwards;
-            opacity: 0;
-        }
+.light-effect{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(45deg,var(--blue),var(--red));
+  opacity:0;
+  animation:flash 6s infinite;
+}
 
-        @keyframes swatIn {
-            from { transform: translateX(100px) scale(1.1); filter: blur(20px); opacity: 0; }
-            to { transform: translateX(0) scale(1); filter: grayscale(0.4) brightness(0.7) blur(0); opacity: 1; }
-        }
+@keyframes flash{
+  0%,95%{opacity:0;}
+  96%{opacity:0.2;}
+  97%{opacity:0;}
+}
 
-        .hero-content h1 {
-            font-size: 4rem;
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px var(--police-blue);
-        }
+.hero-content{
+  z-index:2;
+  animation:fadeIn 3s ease-in-out;
+}
 
-        .typewriter {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            border-right: 2px solid var(--police-blue);
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            margin: 0 auto;
-            animation: typing 3s steps(40) forwards, blink 0.7s infinite;
-        }
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { 50% { border-color: transparent } }
+h1{
+  font-size:3rem;
+  letter-spacing:3px;
+}
 
-        .btn-glow {
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: transparent;
-            border: 1px solid var(--police-blue);
-            color: white;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
+.subtitle{
+  margin-top:15px;
+  font-weight:300;
+}
 
-        .btn-glow:hover {
-            background: var(--police-blue);
-            box-shadow: 0 0 30px var(--police-blue);
-            transform: translateY(-3px);
-        }
+.typewriter{
+  margin-top:20px;
+  font-style:italic;
+  min-height:30px;
+}
 
-        /* 2. TIMELINE */
-        .section-padding { padding: 100px 10%; }
+.btn{
+  margin-top:30px;
+  padding:12px 30px;
+  background:var(--blue);
+  border:none;
+  color:white;
+  cursor:pointer;
+  border-radius:5px;
+  transition:0.3s;
+  box-shadow:0 0 10px var(--blue);
+}
 
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.btn:hover{
+  box-shadow:0 0 25px var(--blue);
+  transform:scale(1.05);
+}
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: var(--police-blue);
-            top: 0; bottom: 0; left: 50%;
-        }
+/* SECTIONS */
+section{
+  padding:100px 10%;
+}
 
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-        }
+.section-title{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:60px;
+}
 
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; text-align: left; }
+/* TIMELINE */
+.timeline{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 16px; height: 16px;
-            background: var(--bg-dark);
-            border: 2px solid var(--police-blue);
-            border-radius: 50%;
-            top: 25px;
-            z-index: 1;
-            box-shadow: 0 0 10px var(--police-blue);
-        }
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  width:3px;
+  height:100%;
+  background:var(--blue);
+  transform:translateX(-50%);
+}
 
-        .left::before { right: -9px; }
-        .right::before { left: -9px; }
+.timeline-item{
+  padding:20px;
+  width:50%;
+  position:relative;
+  opacity:0;
+  transform:translateY(50px);
+  transition:0.6s;
+}
 
-        /* 3. STATS */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+.timeline-item.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
-        .stat-card {
-            background: var(--card-dark);
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #222;
-            transition: 0.3s;
-        }
+.timeline-item.left{
+  left:0;
+  text-align:right;
+}
 
-        .stat-card:hover { border-color: var(--police-blue); box-shadow: 0 0 20px var(--accent-glow); }
-        .stat-card h3 { font-size: 2.5rem; color: var(--police-blue); margin-bottom: 10px; }
+.timeline-item.right{
+  left:50%;
+}
 
-        /* 4. SKILLS */
-        .skill-bar-container { margin-bottom: 20px; }
-        .skill-bg { background: #222; height: 10px; border-radius: 5px; overflow: hidden; }
-        .skill-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--police-blue), #00ccff);
-            width: 0;
-            transition: 2s cubic-bezier(0.1, 0, 0.2, 1);
-        }
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
 
-        /* 5. AKTEN DESIGN */
-        .akte {
-            background: #1a1a1a;
-            border-left: 10px solid var(--police-blue);
-            padding: 40px;
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
-        }
+.stat-card{
+  background:var(--card);
+  padding:30px;
+  text-align:center;
+  border-radius:10px;
+  transition:0.3s;
+}
 
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #333; }
-        .tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: none; color: white; opacity: 0.5; }
-        .tab-btn.active { opacity: 1; border-bottom: 2px solid var(--police-blue); }
+.stat-card:hover{
+  box-shadow:0 0 20px var(--blue);
+  transform:translateY(-5px);
+}
 
-        .hidden { display: none; }
+/* SKILLS */
+.skill{
+  margin-bottom:20px;
+}
 
-        /* 8. FOOTER */
-        #footer {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: black;
-            text-align: center;
-        }
+.skill-bar{
+  width:100%;
+  background:#222;
+  height:10px;
+  border-radius:5px;
+  overflow:hidden;
+}
 
-    </style>
+.skill-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--blue),var(--red));
+  transition:2s;
+}
+
+/* SECRET */
+.secret{
+  text-align:center;
+  opacity:0;
+  transition:2s;
+}
+
+.secret.show{
+  opacity:1;
+}
+
+/* DARK/LIGHT */
+.light-mode{
+  --bg:#e6e6e6;
+  --card:#ffffff;
+  --text:#000000;
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <!-- Ersetze dies mit deinem Imgur-Direktlink für den Officer -->
-        <img src="https://i.imgur.com" class="swat-overlay" alt="Police Officer">
-        
-        <div class="hero-content">
-            <h1>MAVERICK STONE</h1>
-            <p style="color: var(--police-red); font-weight: bold; letter-spacing: 3px;">LOS SANTOS POLICE DEPARTMENT</p>
-            <div class="typewriter">„Verantwortung beginnt dort, wo andere zögern.“</div>
-            <button class="btn-glow" onclick="document.getElementById('stats').scrollIntoView()">Bewerbung ansehen</button>
-        </div>
-    </section>
+<!-- HERO -->
+<div class="hero">
+  <div class="light-effect"></div>
 
-    <!-- Stats Section -->
-    <section class="section-padding" id="stats">
-        <div class="stats-grid">
-            <div class="stat-card"><h3>5+</h3><p>Monate Einsatzdienst</p></div>
-            <div class="stat-card"><h3>3x</h3><p>LSPD Erfahrung</p></div>
-            <div class="stat-card"><h3>0</h3><p>Disziplinarverfahren</p></div>
-            <div class="stat-card"><h3>100%</h3><p>Einsatzbereitschaft</p></div>
-        </div>
-        <p style="text-align:center; margin-top: 20px; opacity: 0.6;">Für mich ist RP kein Spiel – es ist Verantwortung.</p>
-    </section>
+  <div class="hero-content">
+    <h1>MAVERICK STONE</h1>
+    <div class="subtitle">Bewerbung – Los Santos Police Department</div>
+    <div class="typewriter" id="typewriter"></div>
 
-    <!-- Timeline -->
-    <section class="section-padding">
-        <h2 style="text-align:center; margin-bottom: 50px;">RP-Laufbahn</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <h4>2024 - 2025</h4>
-                <p>5 Monate EMS - Ruhe unter extremem Druck gelernt.</p>
-            </div>
-            <div class="timeline-item right">
-                <h4>2025</h4>
-                <p>5 Monate LSPD - Tiefe Einblicke in Teamkoordination.</p>
-            </div>
-            <div class="timeline-item left">
-                <h4>2025</h4>
-                <p>2 Monate Marabunta Grande - Verständnis der Gegenseite.</p>
-            </div>
-        </div>
-    </section>
+    <button class="btn" onclick="scrollToSection()">Bewerbung ansehen</button>
+  </div>
+</div>
 
-    <!-- Skills -->
-    <section class="section-padding">
-        <div class="skill-bar-container">
-            <p>Funkdisziplin <span style="float:right">95%</span></p>
-            <div class="skill-bg"><div class="skill-fill" style="width: 95%;"></div></div>
-        </div>
-        <div class="skill-bar-container">
-            <p>Führungskompetenz <span style="float:right">92%</span></p>
-            <div class="skill-bg"><div class="skill-fill" style="width: 92%;"></div></div>
-        </div>
-        <p style="margin-top: 20px; font-style: italic;">Ich handle überlegt, strukturiert und stets mit Blick auf das Team.</p>
-    </section>
+<!-- TIMELINE -->
+<section id="bewerbung">
+  <div class="section-title">RP-Laufbahn</div>
 
-    <!-- Die Akte -->
-    <section class="section-padding">
-        <div class="akte">
-            <div class="tabs">
-                <div class="tab-btn active">Motivation</div>
-                <div class="tab-btn">Ziele</div>
-            </div>
-            <div id="motivation">
-                <h3>Warum Maverick Stone?</h3>
-                <p>Ich möchte Leader werden, um das LSPD zu einer Einheit zu formen, die durch Professionalität glänzt. Mein Fokus liegt auf Ermittlungs-RP statt reinem Gambling.</p>
-            </div>
-        </div>
-    </section>
+  <div class="timeline">
+    <div class="timeline-item left">
+      📍 2024 – 2025
+    </div>
 
-    <!-- Final Footer -->
-    <footer id="footer">
-        <p style="opacity: 0.4; margin-bottom: 20px;">Vielen Dank für Ihre Zeit.</p>
-        <h2 style="letter-spacing: 5px;">ICH BIN BEREIT.</h2>
-        <p style="margin-top: 50px; font-weight: bold; color: var(--police-blue);">Maverick Stone</p>
-    </footer>
+    <div class="timeline-item right">
+      🔹 5 Monate EMS<br><br>
+      Ruhe & Verantwortung unter Druck.
+    </div>
 
-    <script>
-        // Scroll Reveal für Effekte
-        ScrollReveal().reveal('.stat-card', { delay: 200, distance: '50px', interval: 100 });
-        ScrollReveal().reveal('.timeline-item', { delay: 300, distance: '30px', interval: 200 });
+    <div class="timeline-item left">
+      🔹 LifeInvader Erfahrung<br><br>
+      Struktur & Organisation.
+    </div>
 
-        // Hover Sound Simulation (Web Audio API)
-        const buttons = document.querySelectorAll('button, .stat-card');
-        buttons.forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                console.log('Click Sound'); // Hier könnte ein kleiner MP3-Sound abgespielt werden
-            });
-        });
-    </script>
+    <div class="timeline-item right">
+      🔹 Mehrere Monate LSPD<br><br>
+      Streifendienst & Teamkoordination.
+    </div>
+
+    <div class="timeline-item left">
+      🔹 Marabunta Grande<br><br>
+      Verständnis für Strukturen.
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="section-title">Statistik</div>
+
+  <div class="stats">
+    <div class="stat-card">
+      🚑<br><span class="counter" data-target="5">0</span>+ Monate Dienst
+    </div>
+    <div class="stat-card">
+      👮<br>Mehrfache LSPD Erfahrung
+    </div>
+    <div class="stat-card">
+      📋<br>0 Disziplinarverfahren
+    </div>
+    <div class="stat-card">
+      🔥<br>100% Einsatzbereitschaft
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-title">Skills</div>
+
+  <div class="skill">Funkdisziplin
+    <div class="skill-bar"><div class="skill-fill" data-value="95%"></div></div>
+  </div>
+
+  <div class="skill">Teamarbeit
+    <div class="skill-bar"><div class="skill-fill" data-value="90%"></div></div>
+  </div>
+
+  <div class="skill">Stressresistenz
+    <div class="skill-bar"><div class="skill-fill" data-value="85%"></div></div>
+  </div>
+
+  <div class="skill">Führungskompetenz
+    <div class="skill-bar"><div class="skill-fill" data-value="92%"></div></div>
+  </div>
+</section>
+
+<!-- SECRET -->
+<section class="secret" id="secret">
+  <h2>Vielen Dank für Ihre Zeit.</h2>
+  <p>Ich bin bereit, Verantwortung zu übernehmen.</p>
+  <br>
+  <strong>Maverick Stone</strong>
+</section>
+
+<!-- BUTTONS -->
+<section style="text-align:center;">
+  <button class="btn" onclick="window.print()">Bewerbung als PDF herunterladen</button>
+  <button class="btn" onclick="toggleMode()">Dark / Light Mode</button>
+</section>
+
+<script>
+// Typewriter
+const text="„Verantwortung beginnt dort, wo andere zögern.“";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typewriter").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+type();
+
+function scrollToSection(){
+  document.getElementById("bewerbung").scrollIntoView({behavior:"smooth"});
+}
+
+// Scroll Animation
+const items=document.querySelectorAll(".timeline-item");
+window.addEventListener("scroll",()=>{
+  items.forEach(item=>{
+    const rect=item.getBoundingClientRect();
+    if(rect.top<window.innerHeight-100){
+      item.classList.add("show");
+    }
+  });
+
+  // Skills animation
+  document.querySelectorAll(".skill-fill").forEach(bar=>{
+    const rect=bar.getBoundingClientRect();
+    if(rect.top<window.innerHeight){
+      bar.style.width=bar.getAttribute("data-value");
+    }
+  });
+
+  // Counters
+  document.querySelectorAll(".counter").forEach(counter=>{
+    const rect=counter.getBoundingClientRect();
+    if(rect.top<window.innerHeight){
+      counter.innerText=counter.getAttribute("data-target");
+    }
+  });
+
+  // Secret
+  const secret=document.getElementById("secret");
+  if(window.scrollY+window.innerHeight>=document.body.scrollHeight-50){
+    secret.classList.add("show");
+  }
+});
+
+// Mode Toggle
+function toggleMode(){
+  document.body.classList.toggle("light-mode");
+}
+</script>
+
 </body>
 </html>
