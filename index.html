@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>LSPD Leader Bewerbung - Maverick Stone</title>
+    <style>
+        :root {
+            --police-blue: #0044ff;
+            --police-red: #ff0000;
+            --dark-bg: #0a0a0a;
+            --card-bg: #151515;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* Sirenen-Animation im Hintergrund */
+            animation: police-flash 8s infinite alternate;
+        }
+
+        @keyframes police-flash {
+            0% { box-shadow: inset 0 0 100px rgba(0, 68, 255, 0.1); }
+            50% { box-shadow: inset 0 0 100px rgba(255, 0, 0, 0.1); }
+            100% { box-shadow: inset 0 0 100px rgba(0, 68, 255, 0.1); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://i.imgur.com'); /* Hier Bild-URL einfügen */
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            border: 2px solid var(--police-blue);
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; color: white; text-transform: uppercase; letter-spacing: 3px; }
+
+        .info-block {
+            background: var(--card-bg);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            /* Blau-Roter Border-Effekt */
+            border: 2px solid;
+            border-image: linear-gradient(to right, var(--police-blue), var(--police-red)) 1;
+        }
+
+        h2 {
+            color: #fff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .data-row { margin: 10px 0; line-height: 1.6; }
+        .label { color: var(--police-blue); font-weight: bold; }
+        
+        .highlight { color: #00ffcc; }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Bewerbung zum Leader des LSPD</h1>
+        <p>Mystic Roleplay | Maverick Stone</p>
+    </div>
+
+    <div class="info-block">
+        <h2>Allgemeine Informationen</h2>
+        <div class="data-row"><span class="label">Reallife Name:</span> Julian</div>
+        <div class="data-row"><span class="label">Alter:</span> 15 <span class="highlight">(Ab 04. August: 16 Jahre)</span></div>
+        <div class="data-row"><span class="label">Durchschnittliche Onlinezeiten:</span>
+            <ul>
+                <li>MO: 2-3 Stunden</li>
+                <li>DI - DO: 4-5 Stunden</li>
+                <li>FR - SA: 7-10 Stunden</li>
+                <li>SO: Mind. 10 Stunden</li>
+            </ul>
+        </div>
+        <div class="data-row"><span class="label">Discordname:</span> agrar.julian</div>
+        <div class="data-row"><span class="label">Nickname IC:</span> Maverick Stone</div>
+    </div>
+
+    <div class="info-block">
+        <h2>Zusätzliche Informationen</h2>
+        
+        <div class="data-row">
+            <span class="label">Warum wollen Sie Leader dieser speziellen Organisation werden?</span><br>
+            Ich brenne für das strategische Vorgehen und die Struktur des LSPD. Als Leader möchte ich eine Behörde schaffen, die nicht nur durch Disziplin glänzt, sondern auch ein echtes Vorbild für faires und spannendes Roleplay auf Mystic RP ist. Ich besitze die nötige Ruhe und Durchsetzungskraft, um ein Team langfristig zu motivieren.
+        </div>
+
+        <div class="data-row">
+            <span class="label">Welche Vorschläge zur Verbesserung des Roleplays trägt Ihre Organisation bei?</span><br>
+            Mein Ziel ist weg vom reinen "Baller-RP" hin zu tiefgründiger Ermittlungsarbeit. Wir werden verstärkt auf Verhandlungstaktiken bei Geiselnahmen setzen und die Interaktion mit Zivilisten fördern, um das LSPD als nahbare, aber respektierte Staatsgewalt zu etablieren.
+        </div>
+
+        <div class="data-row">
+            <span class="label">Existieren bereits Personen für die Führungsebene?</span><br>
+            Ja, als stellvertretende Leitung (Assistant Chief) ist <strong>[Name einfügen]</strong> geplant, der/die mich operativ unterstützt.
+        </div>
+
+        <div class="data-row">
+            <span class="label">Welches Konzept stellst du dir vor?</span><br>
+            <strong>Abteilungen:</strong>
+            <ul>
+                <li><strong>P.A.T. (Patrol Division):</strong> Der klassische Streifendienst & Präsenz.</li>
+                <li><strong>D.E.A. (Drug Enforcement Administration):</strong> Fokus auf Drogenkriminalität.</li>
+                <li><strong>S.W.A.T.:</strong> Spezialeinheit für Hochrisiko-Einsätze.</li>
+                <li><strong>I.A. (Internal Affairs):</strong> Überprüfung der internen Korruption.</li>
+            </ul>
+            <strong>Ränge:</strong> Vom Trainee über Officer, Sergeant, Lieutenant bis zum Chief of Police.
+        </div>
+
+        <div class="data-row">
+            <span class="label">Haben Sie die Regeln für Leader gelesen und stimmen Sie diesen zu?</span><br>
+            Ja, ich habe das Regelwerk vollständig gelesen und akzeptiere dieses vollumfänglich.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
