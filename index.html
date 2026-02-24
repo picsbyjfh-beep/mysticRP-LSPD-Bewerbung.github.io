@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAVERICK STONE | LSPD LEADER</title>
+    <title>MAVERICK STONE | LSPD LEADER APPLICATION</title>
     
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <script src="https://unpkg.com"></script>
@@ -11,11 +11,11 @@
     <style>
         :root {
             --bg: #050505;
-            --card: #101010;
+            --card: #0d0d0d;
             --blue: #0055ff;
             --red: #ff0000;
             --text: #ffffff;
-            --text-muted: #999;
+            --text-muted: #888;
             --gold: #d4af37;
         }
 
@@ -25,71 +25,65 @@
         /* HERO SECTION */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://i.imgur.com'); /* LSPD Hintergrund */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://i.imgur.com'); 
             background-size: cover; background-position: center; position: relative; overflow: hidden; text-align: center;
         }
 
-        /* Rot-Blau Licht Animation über dem Bild */
         .hero::after {
             content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(0,85,255,0.1), rgba(255,0,0,0.1));
-            animation: lightShift 4s infinite alternate; pointer-events: none;
+            background: linear-gradient(90deg, rgba(0,85,255,0.15), rgba(255,0,0,0.15));
+            animation: sirenShift 3s infinite alternate; pointer-events: none;
         }
 
-        @keyframes lightShift { 0% { opacity: 0.2; } 100% { opacity: 0.6; } }
+        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.7; } }
 
-        /* Maverick Stone Farbwechsel */
         .main-title {
-            font-family: 'Oswald', sans-serif; font-size: clamp(2.5rem, 8vw, 6rem);
-            letter-spacing: 12px; text-transform: uppercase;
-            animation: colorChange 4s infinite;
+            font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 10vw, 7rem);
+            letter-spacing: 15px; text-transform: uppercase;
+            animation: policeFlash 4s infinite linear;
         }
 
-        @keyframes colorChange {
-            0%, 100% { color: var(--blue); text-shadow: 0 0 30px var(--blue); }
-            50% { color: var(--red); text-shadow: 0 0 30px var(--red); }
+        @keyframes policeFlash {
+            0%, 100% { color: var(--blue); text-shadow: 0 0 40px var(--blue); }
+            50% { color: var(--red); text-shadow: 0 0 40px var(--red); }
         }
 
-        /* Schreibmaschinen-Effekt mit Löschen */
-        .typewriter-box { font-size: 1.4rem; color: #fff; height: 30px; margin-top: 10px; font-weight: 300; }
-        .typewriter-text::after { content: "|"; animation: blink 0.7s infinite; }
+        .typewriter-box { font-size: 1.4rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; letter-spacing: 1px; }
+        .typewriter-text::after { content: "_"; animation: blink 0.7s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
         .btn-glow {
-            margin-top: 50px; padding: 18px 50px; background: transparent;
+            margin-top: 60px; padding: 18px 55px; background: transparent;
             border: 1px solid #fff; color: #fff; text-transform: uppercase;
-            cursor: pointer; transition: 0.4s; letter-spacing: 2px;
+            cursor: pointer; transition: 0.5s; letter-spacing: 3px; font-weight: 600;
         }
-        .btn-glow:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; }
-
-        /* STATS SECTION */
-        section { padding: 100px 10%; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 60px; }
-        .stat-card { background: var(--card); padding: 30px; border-radius: 5px; text-align: center; border-bottom: 3px solid var(--blue); }
-        .stat-card h3 { font-size: 3rem; font-family: 'Oswald'; color: var(--blue); }
-
-        /* SKILL BARS */
-        .skill-bar { height: 12px; background: #222; border-radius: 6px; margin: 15px 0 30px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--red)); width: 0; transition: 2s ease-out; }
-
-        /* RANG-DIAGRAMM */
-        .hierarchy { text-align: center; background: #080808; padding: 80px 5%; }
-        .rank-box { 
-            background: #111; padding: 15px; margin: 5px; border-radius: 4px; 
-            display: inline-block; min-width: 220px; font-size: 0.85rem; border: 1px solid #222;
-        }
-        .high-cmd { background: var(--gold); color: #000; font-weight: bold; }
-        .cmd-struct { border-left: 4px solid var(--red); }
-        .dept-struct { border-left: 4px solid var(--blue); }
-        .divider { width: 2px; height: 30px; background: #333; margin: 10px auto; }
+        .btn-glow:hover { background: #fff; color: #000; box-shadow: 0 0 50px #fff; transform: scale(1.05); }
 
         /* AKTEN DESIGN */
-        .akte { background: var(--card); padding: 40px; border-radius: 10px; border: 1px solid #222; margin-top: 40px; }
-        .info-row { margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .label { color: var(--blue); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
-        
-        .footer { padding: 100px 10%; text-align: center; background: #000; }
+        section { padding: 100px 12%; }
+        .akte { background: var(--card); padding: 50px; border-radius: 4px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; }
+        .akte::before { content: "TOP SECRET"; position: absolute; top: 20px; right: -30px; transform: rotate(45deg); background: var(--red); color: white; padding: 5px 40px; font-size: 0.7rem; font-weight: bold; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-bottom: 70px; }
+        .stat-card { background: #111; padding: 40px; border-radius: 2px; text-align: center; border-bottom: 4px solid var(--blue); }
+        .stat-card h3 { font-size: 3.5rem; font-family: 'Oswald'; color: var(--blue); }
+
+        .info-block { margin-bottom: 40px; }
+        .label { color: var(--blue); font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        .content-text { color: #ccc; line-height: 1.8; font-size: 1.05rem; }
+
+        /* SKILL BARS */
+        .skill-bar { height: 10px; background: #222; border-radius: 5px; margin: 10px 0 30px; overflow: hidden; }
+        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--red)); transition: 3s ease-in-out; }
+
+        /* HIERARCHIE */
+        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 30px; }
+        .rank-item { background: #151515; padding: 12px; border: 1px solid #222; border-left: 3px solid var(--blue); font-size: 0.9rem; transition: 0.3s; }
+        .rank-item:hover { background: #1a1a1a; border-left-color: var(--red); transform: translateX(5px); }
+        .high-cmd { border-left-color: var(--gold); color: var(--gold); font-weight: bold; background: rgba(212, 175, 55, 0.05); }
+
+        .footer { padding: 120px 10%; text-align: center; background: #000; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -101,14 +95,12 @@
             <div class="typewriter-box">
                 <span class="typewriter-text" id="typewriter"></span>
             </div>
-            <button class="btn-glow" onclick="document.getElementById('info').scrollIntoView()">Bewerbung Öffnen</button>
+            <button class="btn-glow" onclick="document.getElementById('application').scrollIntoView()">Bewerbung Öffnen</button>
         </div>
     </div>
 
-    <!-- ALLGEMEINE INFOS -->
-    <section id="info">
-        <h2 style="font-family:'Oswald'; letter-spacing:3px; margin-bottom:40px;">📂 PERSONALAKTE: MAVERICK STONE</h2>
-        
+    <!-- MAIN APPLICATION -->
+    <section id="application">
         <div class="stats-grid">
             <div class="stat-card"><h3>12+</h3><p>Monate Dienstzeit</p></div>
             <div class="stat-card"><h3>0</h3><p>Disziplinarverfahren</p></div>
@@ -116,145 +108,115 @@
         </div>
 
         <div class="akte">
-            <div class="info-row"><div class="label">Reallife Name</div><div>Julian</div></div>
-            <div class="info-row"><div class="label">Alter</div><div>15 (Ab 04. August: 16 Jahre!)</div></div>
-            <div class="info-row"><div class="label">Onlinezeiten</div>
-                <div>MO: 2-3h | DI-DO: 4-5h | FR-SA: 7-10h | SO: 10h+</div>
+            <h2 style="font-family:'Oswald'; letter-spacing:5px; margin-bottom:50px; color:var(--blue);">Dienstakte & Kompetenzen</h2>
+            
+            <div class="info-block">
+                <span class="label">Personalien</span>
+                <p class="content-text"><strong>Name:</strong> Julian | <strong>IC Name:</strong> Maverick Stone | <strong>Alter:</strong> 15 (Bald 16 am 04. August)</p>
+                <p class="content-text"><strong>Discord:</strong> agrar.julian</p>
             </div>
-            <div class="info-row"><div class="label">Discord</div><div>agrar.julian</div></div>
-            <div class="info-row"><div class="label">IC Name</div><div>Maverick Stone</div></div>
-        </div>
 
-        <!-- SKILLS -->
-        <div style="margin-top: 60px;">
-            <h2 style="font-family:'Oswald'; margin-bottom:30px;">KOMPETENZ PROFIL</h2>
-            <p>Funkdisziplin (95%)</p><div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
-            <p>Teamarbeit (90%)</p><div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-            <p>Stressresistenz (88%)</p><div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
-            <p>Führungskompetenz (92%)</p><div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+            <div class="info-block">
+                <span class="label">Verfügbarkeit</span>
+                <p class="content-text">MO: 2-3h | DI-DO: 4-5h | FR-SA: 7-10h | SO (Event/Management): 10h+</p>
+            </div>
+
+            <div class="info-block">
+                <span class="label">Warum LSPD Leader?</span>
+                <p class="content-text">Ich strebe die Führung des LSPD an, um eine Behörde zu etablieren, die auf Professionalität, Struktur und absoluter Integrität basiert. Nach über einem Jahr im Staatsdienst verfüge ich über das notwendige taktische Verständnis und die nötige Ruhe, um ein großes Team auch in Stresssituationen erfolgreich zu koordinieren.</p>
+            </div>
+
+            <div class="info-block">
+                <span class="label">RP-Vision & Ziele</span>
+                <p class="content-text">Mein Fokus liegt auf hochwertigem Ermittlungs-RP statt reinem "Cop-Shooting". Ich möchte das LSPD als faire, respektierte Staatsmacht festigen, die eng mit der Justiz und dem EMS zusammenarbeitet, um realistische Dienstwege auf Mystic Roleplay zu garantieren.</p>
+            </div>
+
+            <h2 style="font-family:'Oswald'; margin: 60px 0 30px; font-size: 1.5rem; letter-spacing: 2px;">Kompetenz Profil</h2>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Funkdisziplin & Taktik (95%)</p>
+            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+            
+            <p style="font-size: 0.8rem; opacity: 0.7;">Führung & Koordination (92%)</p>
+            <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+
+            <p style="font-size: 0.8rem; opacity: 0.7;">Stressresistenz (90%)</p>
+            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
         </div>
     </section>
 
     <!-- HIERARCHIE -->
-    <section class="hierarchy">
-        <h2 style="font-family:'Oswald'; letter-spacing:5px; margin-bottom:50px;">🚔 LSPD DIENSTWEG-STRUKTUR</h2>
+    <section style="background: #080808;">
+        <h2 style="font-family:'Oswald'; text-align:center; letter-spacing:5px; margin-bottom:60px;">🚔 LSPD DIENSTWEG-STRUKTUR</h2>
         
-        <!-- HIGH COMMAND -->
-        <div class="rank-group">
-            <div class="rank-box high-cmd">Executive Chief (Top Level)</div><br>
-            <div class="rank-box high-cmd">Chief of Police</div><br>
-            <div class="rank-box high-cmd">Assistant Chief of Police</div><br>
-            <div class="rank-box high-cmd">Deputy Chief of Police</div>
-        </div>
-        <div class="divider"></div>
+        <div class="rank-grid">
+            <!-- HC -->
+            <div class="rank-item high-cmd">Rang 30: Executive Chief</div>
+            <div class="rank-item high-cmd">Rang 29: Chief of Police</div>
+            <div class="rank-item high-cmd">Rang 28: Assistant Chief</div>
+            <div class="rank-item high-cmd">Rang 27: Deputy Chief</div>
+            
+            <!-- Leadership -->
+            <div class="rank-item">Rang 26: Senior Captain</div>
+            <div class="rank-item">Rang 25: Captain</div>
+            <div class="rank-item">Rang 24: Senior Lieutenant</div>
+            <div class="rank-item">Rang 23: Lieutenant</div>
+            <div class="rank-item">Rang 22: Senior Sergeant</div>
+            <div class="rank-item">Rang 21: Sergeant</div>
 
-        <!-- LEADERSHIP -->
-        <div class="rank-group">
-            <div class="rank-box cmd-struct">Senior Captain</div><br>
-            <div class="rank-box cmd-struct">Captain</div><br>
-            <div class="rank-box cmd-struct">Senior Lieutenant</div><br>
-            <div class="rank-box cmd-struct">Lieutenant</div><br>
-            <div class="rank-box cmd-struct">Senior Sergeant</div><br>
-            <div class="rank-box cmd-struct">Sergeant</div>
-        </div>
-        <div class="divider"></div>
+            <!-- Depts -->
+            <div class="rank-item">Rang 20-15: Training / IA / SWAT Leads</div>
+            <div class="rank-item">Rang 14: Field Training Officer (FTO)</div>
+            <div class="rank-item">Rang 12: SWAT Operator</div>
+            <div class="rank-item">Rang 10: IA Investigator</div>
+            
+            <!-- Field -->
+            <div class="rank-item">Rang 08: Senior Police Officer</div>
+            <div class="rank-item">Rang 06: Patrol Officer</div>
+            <div class="rank-item">Rang 05: Police Officer II</div>
+            <div class="rank-item">Rang 04: Police Officer I</div>
 
-        <!-- DEPARTMENTS -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-            <div class="rank-group">
-                <p class="label">Training Dept.</p><br>
-                <div class="rank-box dept-struct">Training Director</div><br>
-                <div class="rank-box dept-struct">Training Supervisor</div><br>
-                <div class="rank-box dept-struct">Senior Training Officer</div><br>
-                <div class="rank-box dept-struct">Field Training Officer (FTO)</div><br>
-                <div class="rank-box dept-struct">Training Officer</div>
-            </div>
-            <div class="rank-group">
-                <p class="label">Internal Affairs</p><br>
-                <div class="rank-box dept-struct">IA Director</div><br>
-                <div class="rank-box dept-struct">IA Supervisor</div><br>
-                <div class="rank-box dept-struct">IA Investigator</div><br>
-                <div class="rank-box dept-struct">IA Officer</div>
-            </div>
-            <div class="rank-group">
-                <p class="label">SWAT Division</p><br>
-                <div class="rank-box dept-struct">SWAT Team Leader</div><br>
-                <div class="rank-box dept-struct">Senior SWAT Operator</div><br>
-                <div class="rank-box dept-struct">SWAT Operator</div><br>
-                <div class="rank-box dept-struct">Tactical Response Officer</div>
-            </div>
-        </div>
-        <div class="divider"></div>
-
-        <!-- PATROL & ACADEMY -->
-        <div class="rank-group">
-            <div class="rank-box">Patrol Officer</div><br>
-            <div class="rank-box">Senior Police Officer</div><br>
-            <div class="rank-box">Police Officer II</div><br>
-            <div class="rank-box">Police Officer I</div><br>
-            <div class="divider"></div>
-            <div class="rank-box">Probationary Officer</div><br>
-            <div class="rank-box">Police Cadet</div><br>
-            <div class="rank-box">Police Recruit</div>
-        </div>
-    </section>
-
-    <!-- ZUSÄTZLICHE INFOS -->
-    <section>
-        <h2 style="font-family:'Oswald'; margin-bottom:40px;">📋 FRAGEN & KONZEPT</h2>
-        <div class="akte">
-            <div class="info-row">
-                <div class="label">Warum wollen Sie Leader werden?</div>
-                <div>Ich möchte Verantwortung übernehmen und das LSPD zu einer strukturierten, aktiven und professionellen Behörde formen. Mein Fokus liegt auf realistischem RP, klaren Abläufen und der Förderung jedes einzelnen Officers.</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Verbesserung des Roleplays & Ziel?</div>
-                <div>Mein Ziel ist "Qualität vor Quantität". Wir werden das Verhandlungs-RP bei Raubszenarien stärken und die interne Ausbildung so gestalten, dass jeder Officer Situationen deeskalierend lösen kann. Das LSPD soll ein Vorbild für den gesamten Server sein.</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Existieren bereits Personen für Führungsebenen?</div>
-                <div>Aktuell plane ich die engere Führungsebene basierend auf Leistung und Vertrauen intern zu besetzen, um jedem die gleiche Chance zu geben.</div>
-            </div>
-            <div class="info-row">
-                <div class="label">Regeln gelesen & Akzeptiert?</div>
-                <div>Ja, ich habe die Leader-Regeln vollständig gelesen und stimme diesen ausnahmslos zu.</div>
-            </div>
+            <!-- Academy -->
+            <div class="rank-item" style="opacity:0.6;">Rang 03: Probationary Officer</div>
+            <div class="rank-item" style="opacity:0.6;">Rang 02: Police Cadet</div>
+            <div class="rank-item" style="opacity:0.6;">Rang 01: Police Recruit</div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <div class="footer">
-        <h2 style="font-family:'Oswald'; letter-spacing:3px;">Vielen Dank fürs Lesen!</h2>
-        <p style="margin: 20px 0; color: var(--text-muted);">Bei Fragen gerne im Discord melden:</p>
-        <div class="rank-box" style="border-color: var(--blue);">agrar.julian</div>
-        <br><br>
-        <p style="font-size: 0.8rem; opacity: 0.3;">© 2024 Maverick Stone | Mystic Roleplay Leader Application</p>
+        <h2 style="font-family:'Oswald'; letter-spacing:4px; margin-bottom:20px;">VIELEN DANK FÜRS LESEN!</h2>
+        <p style="color:var(--text-muted); margin-bottom:40px;">Bei Rückfragen oder für ein persönliches Gespräch kontaktieren Sie mich bitte über Discord.</p>
+        
+        <div style="background: #111; padding: 20px; display: inline-block; border: 1px solid var(--blue); border-radius: 4px; font-weight: bold; letter-spacing: 2px;">
+            DISCORD: agrar.julian
+        </div>
+
+        <div style="margin-top: 80px; opacity: 0.2; font-size: 0.7rem;">
+            © 2024 Maverick Stone | Mystic Roleplay Leader Application | LSPD High Command
+        </div>
     </div>
 
     <script>
         // TYPEWRITER EFFECT
         const text = "Verantwortung beginnt dort, wo andere zögern.";
-        let i = 0;
-        let isDeleting = false;
+        let i = 0; let isDeleting = false;
         function type() {
             const target = document.getElementById("typewriter");
             if (!isDeleting && i <= text.length) {
-                target.innerHTML = text.substring(0, i);
-                i++;
-                setTimeout(type, 100);
+                target.innerHTML = text.substring(0, i); i++;
+                setTimeout(type, 120);
             } else if (isDeleting && i >= 0) {
-                target.innerHTML = text.substring(0, i);
-                i--;
-                setTimeout(type, 50);
+                target.innerHTML = text.substring(0, i); i--;
+                setTimeout(type, 60);
             }
-            if (i === text.length + 1) { isDeleting = true; setTimeout(type, 2000); }
-            if (i === -1) { isDeleting = false; i = 0; setTimeout(type, 500); }
+            if (i === text.length + 1) { isDeleting = true; setTimeout(type, 3000); }
+            if (i === -1) { isDeleting = false; i = 0; setTimeout(type, 1000); }
         }
         type();
 
         // SCROLL REVEAL
         ScrollReveal().reveal('.stat-card', { delay: 200, origin: 'bottom', distance: '50px' });
-        ScrollReveal().reveal('.info-row', { interval: 100, origin: 'left', distance: '30px' });
+        ScrollReveal().reveal('.akte', { delay: 400, origin: 'bottom', distance: '30px' });
+        ScrollReveal().reveal('.rank-item', { interval: 50, origin: 'left', distance: '20px' });
     </script>
 </body>
 </html>
