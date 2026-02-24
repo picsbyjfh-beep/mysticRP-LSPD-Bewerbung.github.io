@@ -2,138 +2,299 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>LSPD Leader Bewerbung - Maverick Stone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAVERICK STONE | LSPD LEADER BEWERBUNG</title>
+    <script src="https://unpkg.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
         :root {
-            --police-blue: #0044ff;
-            --police-red: #ff0000;
-            --dark-bg: #0a0a0a;
-            --card-bg: #151515;
-            --text-color: #e0e0e0;
+            --bg-dark: #070707;
+            --card-dark: #111111;
+            --police-blue: #0066ff;
+            --police-red: #aa0000;
+            --accent-glow: rgba(0, 102, 255, 0.3);
+            --text-gray: #b0b0b0;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            /* Sirenen-Animation im Hintergrund */
-            animation: police-flash 8s infinite alternate;
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
         }
 
-        @keyframes police-flash {
-            0% { box-shadow: inset 0 0 100px rgba(0, 68, 255, 0.1); }
-            50% { box-shadow: inset 0 0 100px rgba(255, 0, 0, 0.1); }
-            100% { box-shadow: inset 0 0 100px rgba(0, 68, 255, 0.1); }
+        /* Sirenen Hintergrund-Animation */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top left, rgba(0, 102, 255, 0.05), transparent),
+                        radial-gradient(circle at bottom right, rgba(170, 0, 0, 0.05), transparent);
+            z-index: -1;
+            animation: backgroundFlash 6s infinite alternate;
         }
 
-        .container {
-            max-width: 900px;
+        @keyframes backgroundFlash {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        /* 1. HERO SECTION */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: black;
+        }
+
+        .swat-overlay {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            height: 90vh;
+            filter: grayscale(1) brightness(0.6) blur(2px);
+            animation: swatIn 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes swatIn {
+            from { transform: translateX(100px) scale(1.1); filter: blur(20px); opacity: 0; }
+            to { transform: translateX(0) scale(1); filter: grayscale(0.4) brightness(0.7) blur(0); opacity: 1; }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--police-blue);
+        }
+
+        .typewriter {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            border-right: 2px solid var(--police-blue);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            margin: 0 auto;
+            animation: typing 3s steps(40) forwards, blink 0.7s infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { 50% { border-color: transparent } }
+
+        .btn-glow {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: transparent;
+            border: 1px solid var(--police-blue);
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .btn-glow:hover {
+            background: var(--police-blue);
+            box-shadow: 0 0 30px var(--police-blue);
+            transform: translateY(-3px);
+        }
+
+        /* 2. TIMELINE */
+        .section-padding { padding: 100px 10%; }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://imgur.com/a/dqNkDIY'); 
-            background-size: cover;
-            background-position: center;
-            border-radius: 15px;
-            border: 2px solid var(--police-blue);
-            margin-bottom: 30px;
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--police-blue);
+            top: 0; bottom: 0; left: 50%;
         }
 
-        h1 { margin: 0; color: white; text-transform: uppercase; letter-spacing: 3px; }
-
-        .info-block {
-            background: var(--card-bg);
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 12px;
+        .timeline-item {
+            padding: 20px 40px;
             position: relative;
-            /* Blau-Roter Border-Effekt */
-            border: 2px solid;
-            border-image: linear-gradient(to right, var(--police-blue), var(--police-red)) 1;
+            width: 50%;
         }
 
-        h2 {
-            color: #fff;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-            margin-top: 0;
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px; height: 16px;
+            background: var(--bg-dark);
+            border: 2px solid var(--police-blue);
+            border-radius: 50%;
+            top: 25px;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--police-blue);
         }
 
-        .data-row { margin: 10px 0; line-height: 1.6; }
-        .label { color: var(--police-blue); font-weight: bold; }
-        
-        .highlight { color: #00ffcc; }
+        .left::before { right: -9px; }
+        .right::before { left: -9px; }
 
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        /* 3. STATS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover { border-color: var(--police-blue); box-shadow: 0 0 20px var(--accent-glow); }
+        .stat-card h3 { font-size: 2.5rem; color: var(--police-blue); margin-bottom: 10px; }
+
+        /* 4. SKILLS */
+        .skill-bar-container { margin-bottom: 20px; }
+        .skill-bg { background: #222; height: 10px; border-radius: 5px; overflow: hidden; }
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--police-blue), #00ccff);
+            width: 0;
+            transition: 2s cubic-bezier(0.1, 0, 0.2, 1);
+        }
+
+        /* 5. AKTEN DESIGN */
+        .akte {
+            background: #1a1a1a;
+            border-left: 10px solid var(--police-blue);
+            padding: 40px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #333; }
+        .tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: none; color: white; opacity: 0.5; }
+        .tab-btn.active { opacity: 1; border-bottom: 2px solid var(--police-blue); }
+
+        .hidden { display: none; }
+
+        /* 8. FOOTER */
+        #footer {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>Bewerbung zum Leader des LSPD</h1>
-        <p>Mystic Roleplay | Maverick Stone</p>
-    </div>
-
-    <div class="info-block">
-        <h2>Allgemeine Informationen</h2>
-        <div class="data-row"><span class="label">Reallife Name:</span> Julian</div>
-        <div class="data-row"><span class="label">Alter:</span> 15 <span class="highlight">(Ab 04. August: 16 Jahre)</span></div>
-        <div class="data-row"><span class="label">Durchschnittliche Onlinezeiten:</span>
-            <ul>
-                <li>MO: 2-3 Stunden</li>
-                <li>DI - DO: 4-5 Stunden</li>
-                <li>FR - SA: 7-10 Stunden</li>
-                <li>SO: Mind. 10 Stunden</li>
-            </ul>
-        </div>
-        <div class="data-row"><span class="label">Discordname:</span> agrar.julian</div>
-        <div class="data-row"><span class="label">Nickname IC:</span> Maverick Stone</div>
-    </div>
-
-    <div class="info-block">
-        <h2>Zusätzliche Informationen</h2>
+    <!-- Hero Section -->
+    <section id="hero">
+        <!-- Ersetze dies mit deinem Imgur-Direktlink für den Officer -->
+        <img src="https://i.imgur.com" class="swat-overlay" alt="Police Officer">
         
-        <div class="data-row">
-            <span class="label">Warum wollen Sie Leader dieser speziellen Organisation werden?</span><br>
-            Ich brenne für das strategische Vorgehen und die Struktur des LSPD. Als Leader möchte ich eine Behörde schaffen, die nicht nur durch Disziplin glänzt, sondern auch ein echtes Vorbild für faires und spannendes Roleplay auf Mystic RP ist. Ich besitze die nötige Ruhe und Durchsetzungskraft, um ein Team langfristig zu motivieren.
+        <div class="hero-content">
+            <h1>MAVERICK STONE</h1>
+            <p style="color: var(--police-red); font-weight: bold; letter-spacing: 3px;">LOS SANTOS POLICE DEPARTMENT</p>
+            <div class="typewriter">„Verantwortung beginnt dort, wo andere zögern.“</div>
+            <button class="btn-glow" onclick="document.getElementById('stats').scrollIntoView()">Bewerbung ansehen</button>
         </div>
+    </section>
 
-        <div class="data-row">
-            <span class="label">Welche Vorschläge zur Verbesserung des Roleplays trägt Ihre Organisation bei?</span><br>
-            Mein Ziel ist weg vom reinen "Baller-RP" hin zu tiefgründiger Ermittlungsarbeit. Wir werden verstärkt auf Verhandlungstaktiken bei Geiselnahmen setzen und die Interaktion mit Zivilisten fördern, um das LSPD als nahbare, aber respektierte Staatsgewalt zu etablieren.
+    <!-- Stats Section -->
+    <section class="section-padding" id="stats">
+        <div class="stats-grid">
+            <div class="stat-card"><h3>5+</h3><p>Monate Einsatzdienst</p></div>
+            <div class="stat-card"><h3>3x</h3><p>LSPD Erfahrung</p></div>
+            <div class="stat-card"><h3>0</h3><p>Disziplinarverfahren</p></div>
+            <div class="stat-card"><h3>100%</h3><p>Einsatzbereitschaft</p></div>
         </div>
+        <p style="text-align:center; margin-top: 20px; opacity: 0.6;">Für mich ist RP kein Spiel – es ist Verantwortung.</p>
+    </section>
 
-        <div class="data-row">
-            <span class="label">Existieren bereits Personen für die Führungsebene?</span><br>
-            Ja, als stellvertretende Leitung (Assistant Chief) ist <strong>[Name einfügen]</strong> geplant, der/die mich operativ unterstützt.
+    <!-- Timeline -->
+    <section class="section-padding">
+        <h2 style="text-align:center; margin-bottom: 50px;">RP-Laufbahn</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <h4>2024 - 2025</h4>
+                <p>5 Monate EMS - Ruhe unter extremem Druck gelernt.</p>
+            </div>
+            <div class="timeline-item right">
+                <h4>2025</h4>
+                <p>5 Monate LSPD - Tiefe Einblicke in Teamkoordination.</p>
+            </div>
+            <div class="timeline-item left">
+                <h4>2025</h4>
+                <p>2 Monate Marabunta Grande - Verständnis der Gegenseite.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="data-row">
-            <span class="label">Welches Konzept stellst du dir vor?</span><br>
-            <strong>Abteilungen:</strong>
-            <ul>
-                <li><strong>P.A.T. (Patrol Division):</strong> Der klassische Streifendienst & Präsenz.</li>
-                <li><strong>D.E.A. (Drug Enforcement Administration):</strong> Fokus auf Drogenkriminalität.</li>
-                <li><strong>S.W.A.T.:</strong> Spezialeinheit für Hochrisiko-Einsätze.</li>
-                <li><strong>I.A. (Internal Affairs):</strong> Überprüfung der internen Korruption.</li>
-            </ul>
-            <strong>Ränge:</strong> Vom Trainee über Officer, Sergeant, Lieutenant bis zum Chief of Police.
+    <!-- Skills -->
+    <section class="section-padding">
+        <div class="skill-bar-container">
+            <p>Funkdisziplin <span style="float:right">95%</span></p>
+            <div class="skill-bg"><div class="skill-fill" style="width: 95%;"></div></div>
         </div>
-
-        <div class="data-row">
-            <span class="label">Haben Sie die Regeln für Leader gelesen und stimmen Sie diesen zu?</span><br>
-            Ja, ich habe das Regelwerk vollständig gelesen und akzeptiere dieses vollumfänglich.
+        <div class="skill-bar-container">
+            <p>Führungskompetenz <span style="float:right">92%</span></p>
+            <div class="skill-bg"><div class="skill-fill" style="width: 92%;"></div></div>
         </div>
-    </div>
-</div>
+        <p style="margin-top: 20px; font-style: italic;">Ich handle überlegt, strukturiert und stets mit Blick auf das Team.</p>
+    </section>
 
+    <!-- Die Akte -->
+    <section class="section-padding">
+        <div class="akte">
+            <div class="tabs">
+                <div class="tab-btn active">Motivation</div>
+                <div class="tab-btn">Ziele</div>
+            </div>
+            <div id="motivation">
+                <h3>Warum Maverick Stone?</h3>
+                <p>Ich möchte Leader werden, um das LSPD zu einer Einheit zu formen, die durch Professionalität glänzt. Mein Fokus liegt auf Ermittlungs-RP statt reinem Gambling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Footer -->
+    <footer id="footer">
+        <p style="opacity: 0.4; margin-bottom: 20px;">Vielen Dank für Ihre Zeit.</p>
+        <h2 style="letter-spacing: 5px;">ICH BIN BEREIT.</h2>
+        <p style="margin-top: 50px; font-weight: bold; color: var(--police-blue);">Maverick Stone</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal für Effekte
+        ScrollReveal().reveal('.stat-card', { delay: 200, distance: '50px', interval: 100 });
+        ScrollReveal().reveal('.timeline-item', { delay: 300, distance: '30px', interval: 200 });
+
+        // Hover Sound Simulation (Web Audio API)
+        const buttons = document.querySelectorAll('button, .stat-card');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                console.log('Click Sound'); // Hier könnte ein kleiner MP3-Sound abgespielt werden
+            });
+        });
+    </script>
 </body>
 </html>
