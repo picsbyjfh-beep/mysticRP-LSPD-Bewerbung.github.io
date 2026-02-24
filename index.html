@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAVERICK STONE | LSPD LEADER APPLICATION</title>
-    <!-- Favicon / Logo im Tab -->
+    <title>MAVERICK STONE | LSPD LEADER</title>
+    
+    <!-- Favicon: Das Logo im Browser-Tab -->
     <link rel="icon" type="image/png" href="https://i.imgur.com">
+    
     <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <script src="https://unpkg.com"></script>
     <style>
         :root {
             --bg: #050505;
@@ -21,12 +22,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        /* HERO SECTION MIT BILDERN & LICHT */
+        /* LOGO OBEN LINKS */
+        .top-logo {
+            position: absolute; top: 20px; left: 20px; width: 80px; z-index: 100;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+        }
+
+        /* HERO SECTION */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
                         url('https://i.imgur.com'); 
-            background-size: cover; background-position: center; position: relative; overflow: hidden; text-align: center;
+            background-size: cover; background-position: center; position: relative; text-align: center;
         }
 
         .hero::after {
@@ -35,7 +42,7 @@
             animation: sirenShift 2s infinite alternate; pointer-events: none;
         }
 
-        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.8; } }
+        @keyframes sirenShift { 0% { opacity: 0.3; } 100% { opacity: 0.7; } }
 
         .main-title {
             font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 10vw, 7rem);
@@ -48,120 +55,130 @@
             50% { color: var(--red); text-shadow: 0 0 40px var(--red); }
         }
 
-        /* Optimierte Slogan-Animation */
+        /* GEFIXTER SLOGAN-LOOP */
         .typewriter-box { font-size: 1.4rem; color: #fff; height: 40px; margin-top: 15px; font-weight: 300; }
         .typewriter-text::after { content: "|"; animation: blink 0.5s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* RANG-SYSTEM MIT HOVER & FARBEN */
-        section { padding: 100px 12%; }
-        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 30px; }
+        /* ABTEILUNGEN SECTION */
+        section { padding: 80px 10%; }
+        .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px; }
         
+        .dept-btn {
+            background: #111; padding: 20px; border: 1px solid #222; border-left: 4px solid var(--blue);
+            cursor: pointer; transition: 0.3s; text-align: center; font-weight: bold; font-size: 1.1rem;
+        }
+
+        .dept-btn:hover { 
+            background: #1a1a1a; border-left-color: var(--red); transform: translateY(-5px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .dept-info { 
+            background: #0a0a0a; padding: 30px; border-radius: 8px; border: 1px solid #1a1a1a;
+            margin-top: 20px; display: none; animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* RANGLISTE HOVER */
         .rank-item { 
-            background: #151515; padding: 15px; border: 1px solid #222; 
-            border-left: 5px solid var(--blue); transition: 0.3s ease; cursor: pointer;
+            background: #151515; padding: 12px; border-left: 4px solid var(--blue); margin-bottom: 10px;
+            transition: 0.3s; cursor: default;
         }
+        .rank-item:hover { transform: translateX(10px); border-left-color: var(--red); background: #1a1a1a; }
 
-        .rank-item:hover { 
-            background: #1a1a1a; border-left: 8px solid var(--red); 
-            transform: translateX(10px); box-shadow: -10px 0 20px rgba(255, 0, 0, 0.2); 
+        .copy-btn { 
+            background: #111; border: 1px solid var(--blue); color: white; padding: 15px 30px; 
+            cursor: pointer; transition: 0.3s; margin-top: 20px; font-weight: bold;
         }
+        .copy-btn:hover { background: var(--blue); box-shadow: 0 0 20px var(--blue); }
 
-        .high-cmd { border-left-color: var(--gold) !important; color: var(--gold); font-weight: bold; }
-        .high-cmd:hover { border-left-color: #fff !important; box-shadow: -10px 0 20px rgba(212, 175, 55, 0.4); }
-
-        /* SKILL BARS */
-        .skill-bar { height: 12px; background: #222; border-radius: 6px; margin: 10px 0 30px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--red)); transition: 2.5s ease; width: 0; }
-
-        /* DISCORD COPY BUTTON */
-        .copy-box {
-            background: #111; padding: 20px; border: 1px solid var(--blue); 
-            display: inline-block; cursor: pointer; border-radius: 4px; transition: 0.3s;
-        }
-        .copy-box:hover { background: var(--blue); box-shadow: 0 0 30px var(--blue); }
-
-        .btn-glow {
-            margin-top: 40px; padding: 15px 40px; background: transparent;
-            border: 1px solid #fff; color: #fff; text-transform: uppercase;
-            cursor: pointer; transition: 0.4s; letter-spacing: 2px;
-        }
-        .btn-glow:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- LOGO OBEN LINKS -->
+    <img src="https://i.imgur.com" class="top-logo" alt="LSPD Logo">
+
+    <!-- HERO -->
     <div class="hero">
         <div class="hero-content">
             <h1 class="main-title">Maverick Stone</h1>
             <div class="typewriter-box">
                 <span class="typewriter-text" id="typewriter"></span>
             </div>
-            <button class="btn-glow" onclick="document.getElementById('app').scrollIntoView()">Bewerbung Öffnen</button>
+            <button class="copy-btn" onclick="document.getElementById('depts').scrollIntoView()">Bewerbung Öffnen</button>
         </div>
     </div>
 
-    <!-- MAIN SECTION -->
-    <section id="app">
-        <h2 style="font-family:'Oswald'; letter-spacing:5px; margin-bottom:50px; color:var(--blue);">Dienstakte & Strategie</h2>
-        
-        <div style="background:#0d0d0d; padding:40px; border-radius:8px; border:1px solid #222;">
-            <p><strong>Name:</strong> Julian | <strong>IC:</strong> Maverick Stone | <strong>Alter:</strong> 15 (Bald 16 am 04. August)</p>
-            <p><strong>Ziele:</strong> Förderung von Ermittlungs-RP, Deeskalationstraining und transparente Führung.</p>
+    <!-- ABTEILUNGEN -->
+    <section id="depts">
+        <h2 style="font-family:'Oswald'; letter-spacing:5px; text-align:center;">KOMPETENZBEREICHE</h2>
+        <div class="dept-grid">
+            <div class="dept-btn" onclick="showDept('patrol')">🚔 Patrol</div>
+            <div class="dept-btn" onclick="showDept('swat')">⚔ SWAT</div>
+            <div class="dept-btn" onclick="showDept('ia')">🛡 Internal Affairs</div>
+            <div class="dept-btn" onclick="showDept('training')">🎓 Training Dept.</div>
         </div>
 
-        <h2 style="font-family:'Oswald'; margin-top:60px;">Kompetenz Profil</h2>
-        <p>Funkdisziplin (98%)</p><div class="skill-bar"><div class="skill-fill" data-width="98%"></div></div>
-        <p>Führungserfahrung (95%)</p><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div>
-        <p>Stressresistenz (92%)</p><div class="skill-bar"><div class="skill-fill" data-width="92%"></div></div>
-    </section>
-
-    <!-- RANG SYSTEM -->
-    <section style="background:#080808;">
-        <h2 style="font-family:'Oswald'; text-align:center; letter-spacing:5px; margin-bottom:60px;">🚔 LSPD HIERARCHIE</h2>
-        <div class="rank-grid">
-            <div class="rank-item high-cmd">Rang 30: Chief of Police</div>
-            <div class="rank-item high-cmd">Rang 29: Assistant Chief</div>
-            <div class="rank-item high-cmd">Rang 28: Deputy Chief</div>
-            <div class="rank-item">Rang 26: Captain</div>
-            <div class="rank-item">Rang 24: Lieutenant</div>
-            <div class="rank-item">Rang 22: Sergeant</div>
-            <div class="rank-item">Rang 15: SWAT Operator</div>
-            <div class="rank-item">Rang 12: IA Investigator</div>
-            <div class="rank-item">Rang 08: Senior Officer</div>
-            <div class="rank-item">Rang 04: Police Officer I</div>
-            <div class="rank-item" style="opacity:0.6;">Rang 01: Recruit</div>
+        <div id="dept-box" class="dept-info">
+            <h3 id="dept-title" style="color:var(--blue); font-family:'Oswald';">Wähle eine Abteilung</h3>
+            <p id="dept-text" style="margin-top:10px; color:#ccc;">Klicke auf einen der Buttons oben, um Details zu sehen.</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <section style="text-align:center; background:#000;">
-        <h2 style="font-family:'Oswald'; letter-spacing:3px;">Kontakt & Rückfragen</h2>
-        <p style="margin-bottom:30px;">Klicke hier, um meinen Discord-Namen zu kopieren:</p>
-        <div class="copy-box" onclick="copyDiscord()">
-            <span id="discord-tag">agrar.julian</span>
-        </div>
-        <p id="copy-msg" style="margin-top:10px; color:var(--blue); display:none;">Kopiert!</p>
+    <!-- DISCORD COPY -->
+    <section style="text-align:center; background:#080808;">
+        <h2 style="font-family:'Oswald'; margin-bottom:20px;">KONTAKT</h2>
+        <p>Fragen? Melde dich direkt bei mir:</p>
+        <button class="copy-btn" onclick="copyDiscord()">Discord: <span id="discord-tag">agrar.julian</span></button>
+        <p id="copy-msg" style="color:var(--blue); margin-top:10px; display:none;">In Zwischenablage kopiert!</p>
     </section>
 
     <script>
-        // TYPEWRITER MIT SCHNELLEREM INTERVALL
+        // TYPEWRITER FIX (KEIN BESCHLEUNIGEN MEHR)
         const text = "Verantwortung beginnt dort, wo andere zögern.";
-        let i = 0; let isDeleting = false;
-        function type() {
-            const target = document.getElementById("typewriter");
-            if (!isDeleting && i <= text.length) {
-                target.innerHTML = text.substring(0, i); i++;
-                setTimeout(type, 80); // Schneller
-            } else if (isDeleting && i >= 0) {
-                target.innerHTML = text.substring(0, i); i--;
-                setTimeout(type, 40); // Schneller
+        let charIndex = 0;
+        let isDeleting = false;
+        const target = document.getElementById("typewriter");
+
+        function typeLoop() {
+            const speed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex <= text.length) {
+                target.innerHTML = text.substring(0, charIndex);
+                charIndex++;
+            } else if (isDeleting && charIndex >= 0) {
+                target.innerHTML = text.substring(0, charIndex);
+                charIndex--;
             }
-            if (i === text.length + 1) { isDeleting = true; setTimeout(type, 2000); }
-            if (i === -1) { isDeleting = false; i = 0; setTimeout(type, 500); }
+
+            if (charIndex === text.length + 1) {
+                isDeleting = true;
+                setTimeout(typeLoop, 2000);
+            } else if (charIndex === -1) {
+                isDeleting = false;
+                charIndex = 0;
+                setTimeout(typeLoop, 500);
+            } else {
+                setTimeout(typeLoop, speed);
+            }
         }
-        type();
+        typeLoop();
+
+        // ABTEILUNGS-LOGIK
+        const deptContent = {
+            patrol: ["Patrol Division", "Das Rückgrat des LSPD. Zuständig für Präsenz, Notrufe und Verkehrskontrollen. Jeder Officer startet hier seine Karriere."],
+            swat: ["SWAT Division", "Spezialeinheit für Hochrisiko-Einsätze, Geiselnahmen und taktische Zugriffe. Nur für die Elite."],
+            ia: ["Internal Affairs", "Überwachung der Integrität. Wir stellen sicher, dass Korruption keine Chance hat und die Regeln eingehalten werden."],
+            training: ["Training Department", "Ausbildung der Academy-Phase. Wir bereiten Recruits auf den harten Alltag auf den Straßen von Los Santos vor."]
+        };
+
+        function showDept(id) {
+            document.getElementById('dept-box').style.display = 'block';
+            document.getElementById('dept-title').innerText = deptContent[id][0];
+            document.getElementById('dept-text').innerText = deptContent[id][1];
+        }
 
         // DISCORD COPY
         function copyDiscord() {
@@ -170,15 +187,6 @@
             document.getElementById("copy-msg").style.display = "block";
             setTimeout(() => { document.getElementById("copy-msg").style.display = "none"; }, 2000);
         }
-
-        // SKILL FILL ANIMATION
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.skill-fill').forEach(bar => {
-                if(bar.getBoundingClientRect().top < window.innerHeight) {
-                    bar.style.width = bar.getAttribute('data-width');
-                }
-            });
-        });
     </script>
 </body>
 </html>
