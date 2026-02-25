@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maverick Stone | LSPD Leader Bewerbung</title>
-
+<link rel="icon" type="image/png" href="https://i.imgur.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
  --bg:#0f0f0f;
  --card:#161616;
@@ -48,20 +47,13 @@ body{
 }
 
 @keyframes policeFlash{
- 0%{
-   background:
-   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.6), transparent 45%),
-   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.1), transparent 45%);
+ 0%, 100%{
+   background: radial-gradient(circle at 20% 50%, rgba(0,100,255,0.6), transparent 45%),
+               radial-gradient(circle at 80% 50%, rgba(255,0,0,0.1), transparent 45%);
  }
  50%{
-   background:
-   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.1), transparent 45%),
-   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.6), transparent 45%);
- }
- 100%{
-   background:
-   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.6), transparent 45%),
-   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.1), transparent 45%);
+   background: radial-gradient(circle at 20% 50%, rgba(0,100,255,0.1), transparent 45%),
+               radial-gradient(circle at 80% 50%, rgba(255,0,0,0.6), transparent 45%);
  }
 }
 
@@ -78,17 +70,10 @@ body{
 }
 
 .hero-content{z-index:2;}
+.hero h1{ font-size:3.5rem; letter-spacing:5px; animation: glow 2s infinite alternate; }
+@keyframes glow { from { text-shadow: 0 0 10px var(--blue); } to { text-shadow: 0 0 20px var(--red); } }
 
-.hero h1{
- font-size:3rem;
- letter-spacing:3px;
-}
-
-.typewriter{
- margin-top:20px;
- font-style:italic;
- min-height:30px;
-}
+.typewriter{ margin-top:20px; font-style:italic; min-height:30px; color: #ccc; }
 
 button{
  margin-top:30px;
@@ -100,135 +85,62 @@ button{
  border-radius:5px;
  box-shadow:0 0 15px var(--blue);
  transition:0.3s;
+ text-transform: uppercase;
+ font-weight: bold;
 }
 
-button:hover{
- box-shadow:0 0 30px var(--blue);
- transform:scale(1.05);
+button:hover{ box-shadow:0 0 30px var(--blue); transform:scale(1.05); }
+
+section{ padding:100px 10%; }
+
+/* RANG-SYSTEM DESIGN */
+.rank-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 15px;
+ margin-top: 40px;
 }
 
-section{
- padding:100px 10%;
+.rank-card {
+ background: #111;
+ padding: 15px;
+ border-left: 4px solid var(--blue);
+ border-radius: 4px;
+ transition: 0.3s;
+ border-bottom: 1px solid #222;
 }
 
-/* TIMELINE */
-.timeline{
- position:relative;
- max-width:900px;
- margin:auto;
+.rank-card:hover {
+ transform: translateX(10px);
+ border-left-color: var(--red);
+ background: #1a1a1a;
 }
 
-.timeline::before{
- content:'';
- position:absolute;
- left:50%;
- width:3px;
- height:100%;
- background:var(--blue);
- transform:translateX(-50%);
-}
-
-.item{
- width:50%;
- padding:20px;
- opacity:0;
- transform:translateY(50px);
- transition:0.6s;
- position:relative;
-}
-
-.item.show{
- opacity:1;
- transform:translateY(0);
-}
-
-.left{text-align:right;}
-.right{left:50%;}
+.rank-header { color: var(--blue); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+.rank-name { font-size: 1.1rem; margin-top: 5px; }
+.leader-rank { border-left-color: gold !important; background: rgba(255,215,0,0.05); }
 
 /* SKILLS */
-.skill{margin:20px 0;}
-
-.bar{
- background:#222;
- height:12px;
- border-radius:6px;
- overflow:hidden;
-}
-
-.fill{
- height:100%;
- width:0;
- background:linear-gradient(90deg,var(--blue),var(--red));
- transition:2s;
-}
+.skill{margin:20px 0; font-weight: bold;}
+.bar{ background:#222; height:12px; border-radius:6px; overflow:hidden; margin-top: 5px;}
+.fill{ height:100%; width:0; background:linear-gradient(90deg,var(--blue),var(--red)); transition:2s; }
 
 /* ABTEILUNGEN */
-.dept-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
- gap:15px;
- margin-top:40px;
-}
+.dept-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-top:40px; }
+.dept{ background:#111; padding:20px; text-align:center; border-radius:8px; cursor:pointer; transition:0.3s; border:1px solid #222; font-weight: bold; }
+.dept:hover{ background:#1a1a1a; box-shadow:0 0 15px var(--blue); transform:translateY(-5px); }
+.dept-info{ margin-top:30px; background:var(--card); padding:25px; border-radius:10px; display:none; border-left: 5px solid var(--blue); animation: fadeIn 0.5s; }
 
-.dept{
- background:#111;
- padding:20px;
- text-align:center;
- border-radius:8px;
- cursor:pointer;
- transition:0.3s;
- border:1px solid #222;
-}
-
-.dept:hover{
- background:#1a1a1a;
- box-shadow:0 0 15px var(--blue);
- transform:translateY(-5px);
-}
-
-.dept-info{
- margin-top:30px;
- background:var(--card);
- padding:25px;
- border-radius:10px;
- display:none;
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* TABS */
-.tabs{
- display:flex;
- justify-content:center;
- gap:10px;
- margin-bottom:30px;
- flex-wrap:wrap;
-}
-
-.tab{
- padding:10px 15px;
- background:#222;
- cursor:pointer;
- border-radius:5px;
-}
-
-.tab.active{background:var(--blue);}
-
-.tab-content{
- display:none;
- background:var(--card);
- padding:25px;
- border-radius:10px;
-}
-
+.tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:30px; flex-wrap:wrap; }
+.tab{ padding:10px 15px; background:#222; cursor:pointer; border-radius:5px; transition: 0.3s; }
+.tab.active{background:var(--blue); box-shadow: 0 0 10px var(--blue); }
+.tab-content{ display:none; background:var(--card); padding:25px; border-radius:10px; line-height: 1.6; }
 .tab-content.active{display:block;}
 
-/* SECRET */
-.secret{
- text-align:center;
- opacity:0;
- transition:2s;
- padding:80px 20px;
-}
-
+.secret{ text-align:center; opacity:0; transition:2s; padding:80px 20px; border-top: 1px solid #222; }
 .secret.show{opacity:1;}
 
 </style>
@@ -248,136 +160,141 @@ section{
 
 <section id="main">
 
-<h2>RP Laufbahn</h2>
-<div class="timeline">
- <div class="item left">5 Monate EMS Erfahrung</div>
- <div class="item right">LSPD Streifendienst</div>
- <div class="item left">Organisation & Führung</div>
- <div class="item right">Struktur & Disziplin</div>
+<h2>Allgemeine Informationen</h2>
+<div class="tab-content active" style="margin-bottom: 50px;">
+ <strong>Name:</strong> Julian (15, ab 4. August 16) <br>
+ <strong>Discord:</strong> agrar.julian <br>
+ <strong>IC Name:</strong> Maverick Stone <br>
+ <strong>Onlinezeiten:</strong> MO 2-3h | DI-DO 4-5h | FR-SA 7-10h | SO 10h+
 </div>
 
-<h2 style="margin-top:80px;">Skills</h2>
+<h2>Kompetenzen</h2>
+<div class="skill">Funkdisziplin <div class="bar"><div class="fill" style="width: 95%;"></div></div></div>
+<div class="skill">Teamarbeit <div class="bar"><div class="fill" style="width: 92%;"></div></div></div>
+<div class="skill">Stressresistenz <div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+<div class="skill">Führung <div class="bar"><div class="fill" style="width: 94%;"></div></div></div>
 
-<div class="skill">Funkdisziplin
-<div class="bar"><div class="fill" data="95%"></div></div>
-</div>
+<h2 style="margin-top:80px;">Stammbaum & Rangstruktur</h2>
+<div class="rank-container">
+ <!-- Leaderschaft -->
+ <div class="rank-card leader-rank"><div class="rank-header">Rang 30</div><div class="rank-name">Chief of Police</div></div>
+ <div class="rank-card leader-rank"><div class="rank-header">Rang 29</div><div class="rank-name">Assistant Chief of Police</div></div>
+ <div class="rank-card leader-rank"><div class="rank-header">Rang 28</div><div class="rank-name">Deputy Chief of Police</div></div>
+ 
+ <!-- High Command -->
+ <div class="rank-card"><div class="rank-header">Rang 27</div><div class="rank-name">Executive Command (Curator)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 26</div><div class="rank-name">Senior Captain (Abteilungsleitung)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 25</div><div class="rank-name">Captain</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 24</div><div class="rank-name">Senior Lieutenant</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 23</div><div class="rank-name">Lieutenant</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 22</div><div class="rank-name">Senior Sergeant</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 21</div><div class="rank-name">Sergeant</div></div>
 
-<div class="skill">Teamarbeit
-<div class="bar"><div class="fill" data="92%"></div></div>
-</div>
+ <!-- Spezialisten -->
+ <div class="rank-card"><div class="rank-header">Rang 20</div><div class="rank-name">Human-Ressource Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 19</div><div class="rank-name">SWAT Senior-Member</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 18</div><div class="rank-name">Internal Affairs Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 17</div><div class="rank-name">Leer (Tactical Coordinator)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 16</div><div class="rank-name">Training Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 15</div><div class="rank-name">SWAT High-Member</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 14</div><div class="rank-name">Community Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 13</div><div class="rank-name">Kommunikations Officer</div></div>
+ 
+ <!-- Filler Ränge -->
+ <div class="rank-card"><div class="rank-header">Rang 12</div><div class="rank-name">Leer (Field Medic Officer)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 11</div><div class="rank-name">Leer (K9-Unit Specialist)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 10</div><div class="rank-name">Leer (Traffic Enforcement)</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 09</div><div class="rank-name">Leer (Detective Trainee)</div></div>
 
-<div class="skill">Stressresistenz
-<div class="bar"><div class="fill" data="90%"></div></div>
-</div>
+ <!-- Field Ränge -->
+ <div class="rank-card"><div class="rank-header">Rang 08</div><div class="rank-name">Senior Police Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 07</div><div class="rank-name">Patrol Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 06</div><div class="rank-name">Police Officer II</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 05</div><div class="rank-name">Police Officer I</div></div>
 
-<div class="skill">Führung
-<div class="bar"><div class="fill" data="94%"></div></div>
+ <!-- Academy -->
+ <div class="rank-card"><div class="rank-header">Rang 04</div><div class="rank-name">Probationary Officer</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 03</div><div class="rank-name">Police Cadet</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 02</div><div class="rank-name">Police Trainee</div></div>
+ <div class="rank-card"><div class="rank-header">Rang 01</div><div class="rank-name">Police Recruit</div></div>
 </div>
 
 <h2 style="margin-top:80px;">Abteilungen</h2>
-
 <div class="dept-grid">
-<div class="dept" onclick="showDept('Patrol')">Patrol</div>
-<div class="dept" onclick="showDept('Detective')">Detective</div>
-<div class="dept" onclick="showDept('SWAT')">SWAT</div>
-<div class="dept" onclick="showDept('Training')">Training</div>
-<div class="dept" onclick="showDept('IA')">Internal Affairs</div>
-<div class="dept" onclick="showDept('Community')">Community</div>
+ <div class="dept" onclick="showDept('PR')">Public Relations</div>
+ <div class="dept" onclick="showDept('SWAT')">SWAT</div>
+ <div class="dept" onclick="showDept('HR')">Human-Resource</div>
+ <div class="dept" onclick="showDept('IA')">Internal Affairs</div>
+ <div class="dept" onclick="showDept('DP')">Trainings-Dept.</div>
+ <div class="dept" onclick="showDept('KK')">Kommunikation</div>
 </div>
 
 <div class="dept-info" id="deptBox"></div>
 
 <h2 style="margin-top:80px;">Digitale Akte</h2>
-
 <div class="tabs">
- <div class="tab active" onclick="showTab(0)">Persönlich</div>
- <div class="tab" onclick="showTab(1)">Motivation</div>
- <div class="tab" onclick="showTab(2)">Konzept</div>
+ <div class="tab active" onclick="showTab(0)">Motivation</div>
+ <div class="tab" onclick="showTab(1)">Konzept</div>
+ <div class="tab" onclick="showTab(2)">Ziele</div>
 </div>
 
-<div class="tab-content active">
-Maverick Stone – Leader Bewerbung
-</div>
-
-<div class="tab-content">
-Struktur, Professionalität und aktives Roleplay.
-</div>
-
-<div class="tab-content">
-Klare Rangstruktur, Trainings, Transparenz.
-</div>
+<div id="tab0" class="tab-content active">Ich möchte das LSPD auf Mystic RP zu einer strukturierten und fairen Staatsmacht führen. Professionalität steht an erster Stelle.</div>
+<div id="tab1" class="tab-content">Klare Kommunikation, tägliche Trainings und eine transparente Führungsebene ohne Bevorzugung.</div>
+<div id="tab2" class="tab-content">Steigerung des RP-Niveaus durch Deeskalation und realistische Polizeiarbeit.</div>
 
 </section>
 
 <div class="secret" id="secret">
-<h2>Vielen Dank für Ihre Zeit.</h2>
-<strong>Maverick Stone</strong>
+ <h2>Vielen Dank für Ihre Zeit.</h2>
+ <p>Ich bin bereit, Verantwortung zu übernehmen.</p><br>
+ <strong>Maverick Stone</strong>
 </div>
 
 <script>
-
 /* TYPEWRITER */
-const text="„Verantwortung beginnt dort, wo andere zögern.“";
-let i=0;
+const textTyping="„Verantwortung beginnt dort, wo andere zögern.“";
+let charIndex=0;
 function type(){
- if(i<text.length){
-  document.getElementById("type").innerHTML+=text[i];
-  i++;
-  setTimeout(type,50);
+ if(charIndex < textTyping.length){
+  document.getElementById("type").innerHTML += textTyping[charIndex];
+  charIndex++;
+  setTimeout(type, 60);
  }
 }
 type();
 
-/* SCROLL */
-window.addEventListener("scroll",()=>{
-
- document.querySelectorAll(".item").forEach(el=>{
-  if(el.getBoundingClientRect().top<window.innerHeight-100){
-   el.classList.add("show");
-  }
- });
-
- document.querySelectorAll(".fill").forEach(bar=>{
-  if(bar.getBoundingClientRect().top<window.innerHeight){
-   bar.style.width=bar.getAttribute("data");
-  }
- });
-
- if(window.scrollY+window.innerHeight>=document.body.scrollHeight){
-  document.getElementById("secret").classList.add("show");
- }
-
-});
-
-/* TABS */
-function showTab(index){
- let tabs=document.querySelectorAll(".tab");
- let contents=document.querySelectorAll(".tab-content");
-
- tabs.forEach(t=>t.classList.remove("active"));
- contents.forEach(c=>c.classList.remove("active"));
-
- tabs[index].classList.add("active");
- contents[index].classList.add("active");
-}
-
-/* DEPARTMENTS */
-const deptInfo={
- Patrol:"Streifendienst – Erste Einsatzlinie, Bürgerkontakt und Präsenz im Stadtgebiet.",
- Detective:"Ermittlungen, Beweissicherung und tiefgehendes Kriminal-Roleplay.",
- SWAT:"Hochrisiko-Einsätze, Geiselnahmen und taktische Spezialoperationen.",
- Training:"Ausbildung neuer Mitglieder, Schießtraining und Taktikschulungen.",
- IA:"Interne Kontrolle, Disziplinarprüfung und Integrität der Behörde.",
- Community:"Bürgernähe, Events, Kommunikation und Öffentlichkeitsarbeit."
+/* ABTEILUNGEN LOGIK */
+const depts = {
+ PR: "Events, Öffentlichkeitsarbeit und die Imagepflege des LSPD.",
+ SWAT: "Spezialeinheit für Geiselnahmen, Raubüberfälle und taktische Großeinsätze.",
+ HR: "Zuständig für Personalverwaltung, Sanktionen, Beförderungen und Beschwerdemanagement gegen Officer.",
+ IA: "Interne Ermittlungen zur Bekämpfung von Korruption und Fehlverhalten.",
+ DP: "Grundausbildungen, Schießtrainings und taktische Fortbildungen für alle Officer.",
+ KK: "Leitstelle, Dienstplanung und Koordination der Einheiten im Funk."
 };
 
-function showDept(name){
- const box=document.getElementById("deptBox");
- box.style.display="block";
- box.innerHTML="<strong>"+name+"</strong><br><br>"+deptInfo[name];
- box.scrollIntoView({behavior:"smooth"});
+function showDept(id){
+ const box = document.getElementById('deptBox');
+ box.style.display = 'block';
+ box.innerHTML = `<h3>${id}</h3><p>${depts[id]}</p>`;
 }
 
+/* TABS LOGIK */
+function showTab(index){
+ document.querySelectorAll('.tab-content').forEach((c, i) => {
+  c.classList.toggle('active', i === index);
+ });
+ document.querySelectorAll('.tab').forEach((t, i) => {
+  t.classList.toggle('active', i === index);
+ });
+}
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+ if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 50){
+  document.getElementById("secret").classList.add("show");
+ }
+});
 </script>
 
 </body>
