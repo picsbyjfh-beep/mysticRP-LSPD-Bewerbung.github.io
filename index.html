@@ -32,6 +32,39 @@ body{
  transition:0.5s;
 }
 
+/* 🚨 SIRENENLICHTER */
+.police-lights{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ z-index:-1;
+ pointer-events:none;
+ background:
+ radial-gradient(circle at 20% 50%, rgba(0,100,255,0.4), transparent 45%),
+ radial-gradient(circle at 80% 50%, rgba(255,0,0,0.4), transparent 45%);
+ animation:policeFlash 1.2s infinite;
+}
+
+@keyframes policeFlash{
+ 0%{
+   background:
+   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.6), transparent 45%),
+   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.1), transparent 45%);
+ }
+ 50%{
+   background:
+   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.1), transparent 45%),
+   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.6), transparent 45%);
+ }
+ 100%{
+   background:
+   radial-gradient(circle at 20% 50%, rgba(0,100,255,0.6), transparent 45%),
+   radial-gradient(circle at 80% 50%, rgba(255,0,0,0.1), transparent 45%);
+ }
+}
+
 /* HERO */
 .hero{
  height:100vh;
@@ -44,24 +77,12 @@ body{
  overflow:hidden;
 }
 
-.flash{
- position:absolute;
- width:100%;
- height:100%;
- background:linear-gradient(45deg,var(--blue),var(--red));
- opacity:0;
- animation:flash 6s infinite;
-}
-
-@keyframes flash{
- 0%,95%{opacity:0;}
- 96%{opacity:0.25;}
- 97%{opacity:0;}
-}
-
 .hero-content{z-index:2;}
 
-.hero h1{font-size:3rem;}
+.hero h1{
+ font-size:3rem;
+ letter-spacing:3px;
+}
 
 .typewriter{
  margin-top:20px;
@@ -77,12 +98,12 @@ button{
  color:white;
  cursor:pointer;
  border-radius:5px;
- box-shadow:0 0 10px var(--blue);
+ box-shadow:0 0 15px var(--blue);
  transition:0.3s;
 }
 
 button:hover{
- box-shadow:0 0 25px var(--blue);
+ box-shadow:0 0 30px var(--blue);
  transform:scale(1.05);
 }
 
@@ -113,6 +134,7 @@ section{
  opacity:0;
  transform:translateY(50px);
  transition:0.6s;
+ position:relative;
 }
 
 .item.show{
@@ -120,27 +142,8 @@ section{
  transform:translateY(0);
 }
 
-.left{left:0;text-align:right;}
+.left{text-align:right;}
 .right{left:50%;}
-
-/* STATS */
-.stats{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
- gap:20px;
-}
-
-.card{
- background:var(--card);
- padding:25px;
- text-align:center;
- border-radius:10px;
- transition:0.3s;
-}
-
-.card:hover{
- box-shadow:0 0 20px var(--blue);
-}
 
 /* SKILLS */
 .skill{margin:20px 0;}
@@ -233,8 +236,9 @@ section{
 
 <body>
 
+<div class="police-lights"></div>
+
 <div class="hero">
- <div class="flash"></div>
  <div class="hero-content">
   <h1>MAVERICK STONE</h1>
   <div class="typewriter" id="type"></div>
@@ -273,14 +277,12 @@ section{
 <h2 style="margin-top:80px;">Abteilungen</h2>
 
 <div class="dept-grid">
-
 <div class="dept" onclick="showDept('Patrol')">Patrol</div>
 <div class="dept" onclick="showDept('Detective')">Detective</div>
 <div class="dept" onclick="showDept('SWAT')">SWAT</div>
 <div class="dept" onclick="showDept('Training')">Training</div>
 <div class="dept" onclick="showDept('IA')">Internal Affairs</div>
 <div class="dept" onclick="showDept('Community')">Community</div>
-
 </div>
 
 <div class="dept-info" id="deptBox"></div>
