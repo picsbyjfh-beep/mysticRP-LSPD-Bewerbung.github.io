@@ -3,213 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maverick Stone | EMS Leader Bewerbung</title>
+<title>Maverick Stone | EMS Direktion Bewerbung</title>
 <link rel="icon" type="image/png" href="https://i.imgur.com">
 <link href="https://fonts.googleapis.com" rel="stylesheet">
 
 <style>
 :root{
- --bg:#0a0a0a;
- --card:#121212;
- --ems-red:#cc0000;
- --ems-blue:#0055ff;
- --white:#ffffff;
+ --bg:#080808;
+ --card:#111111;
+ --medical-red:#d60000;
+ --medical-blue:#0062ff;
+ --text:white;
  --gold:#d4af37;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth; }
-body{ background:var(--bg); color:var(--white); overflow-x:hidden; }
+body{ background:var(--bg); color:var(--text); overflow-x:hidden; }
 
-/* 🚑 EMS LICHTEFFEKT HINTERGRUND */
-.ems-lights{
+/* 🚑 MEDICAL PULSE BACKGROUND */
+.medical-bg{
  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none;
  background: 
- radial-gradient(circle at 10% 10%, rgba(204,0,0,0.15), transparent 40%),
- radial-gradient(circle at 90% 90%, rgba(0,85,255,0.15), transparent 40%);
- animation: pulse 3s infinite alternate;
+ radial-gradient(circle at 10% 10%, rgba(214,0,0,0.1), transparent 40%),
+ radial-gradient(circle at 90% 90%, rgba(0,98,255,0.1), transparent 40%);
+ animation: pulseBg 4s infinite alternate;
 }
-@keyframes pulse { from { opacity: 0.6; } to { opacity: 1; } }
+@keyframes pulseBg { from { opacity: 0.5; } to { opacity: 1; } }
 
 /* HERO */
 .hero{
  height:100vh; display:flex; justify-content:center; align-items:center; 
  text-align:center; background:black; position:relative; overflow:hidden;
- background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://i.imgur.com'); /* Hier EMS Hintergrundbild möglich */
+ background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://i.imgur.com'); 
  background-size: cover; background-position: center;
 }
-.hero h1{ font-size:4rem; letter-spacing:8px; color: white; text-shadow: 0 0 20px var(--ems-red); }
-.typewriter{ margin-top:20px; font-size: 1.2rem; min-height:30px; color: #ddd; font-style: italic; }
+.hero h1{ font-size:4rem; letter-spacing:10px; color: white; text-shadow: 0 0 20px var(--medical-red); text-transform: uppercase; }
+.typewriter{ margin-top:20px; font-size: 1.3rem; min-height:35px; color: #ccc; font-style: italic; letter-spacing: 1px; }
 
 button{
- margin-top:40px; padding:15px 35px; background:var(--ems-red); border:none; color:white;
- cursor:pointer; border-radius:5px; box-shadow:0 0 20px var(--ems-red); transition:0.3s;
- font-weight: bold; text-transform: uppercase;
+ margin-top:40px; padding:18px 40px; background:var(--medical-red); border:none; color:white;
+ cursor:pointer; border-radius:4px; box-shadow:0 0 20px var(--medical-red); transition:0.3s;
+ font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
 }
-button:hover{ box-shadow:0 0 40px var(--ems-red); transform:scale(1.05); }
+button:hover{ box-shadow:0 0 40px var(--medical-red); transform:scale(1.05); background: white; color: var(--medical-red); }
 
 /* SECTIONS */
-section{ padding:80px 10%; }
-h2 { font-size: 2rem; border-left: 5px solid var(--ems-red); padding-left: 15px; margin-bottom: 40px; text-transform: uppercase; }
+section{ padding:100px 12%; }
+h2 { font-size: 2.2rem; border-left: 6px solid var(--medical-red); padding-left: 20px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; }
 
-/* RANGLISTE DESIGN */
-.rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+/* REIN MEDIZINISCHE RANGLISTE */
+.rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
 .rank-card { 
- background: var(--card); padding: 15px; border-left: 4px solid var(--ems-blue); 
+ background: var(--card); padding: 18px; border-left: 4px solid var(--medical-blue); 
  border-radius: 4px; transition: 0.3s; display: flex; align-items: center; justify-content: space-between;
+ border-bottom: 1px solid #222;
 }
-.rank-card:hover { transform: translateX(10px); border-left-color: var(--ems-red); background: #1a1a1a; }
-.high-rank { border-left-color: var(--gold) !important; color: var(--gold); }
+.rank-card:hover { transform: translateX(12px); border-left-color: var(--medical-red); background: #1a1a1a; box-shadow: -10px 0 20px rgba(214,0,0,0.1); }
+.high-rank { border-left-color: var(--gold) !important; color: var(--gold); background: rgba(212, 175, 55, 0.05); }
 
 /* ABTEILUNGEN */
-.dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+.dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; }
 .dept-card { 
- background: #111; padding: 20px; text-align: center; border-radius: 8px; 
- cursor: pointer; transition: 0.3s; border: 1px solid #222; font-weight: 600;
+ background: #111; padding: 25px; text-align: center; border-radius: 4px; 
+ cursor: pointer; transition: 0.4s; border: 1px solid #222; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
 }
-.dept-card:hover { background: var(--ems-red); transform: translateY(-5px); }
+.dept-card:hover { background: var(--medical-red); transform: translateY(-8px); border-color: white; }
 .dept-info-box { 
- margin-top: 30px; background: var(--card); padding: 30px; border-radius: 10px; 
- display: none; border-top: 4px solid var(--ems-red); animation: fadeIn 0.5s;
+ margin-top: 35px; background: var(--card); padding: 35px; border-radius: 8px; 
+ display: none; border-top: 5px solid var(--medical-red); animation: slideIn 0.5s; line-height: 1.8;
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-.footer-secret{ text-align: center; padding: 100px; opacity: 0; transition: 2s; border-top: 1px solid #222; }
+.footer-secret{ text-align: center; padding: 120px; opacity: 0; transition: 2.5s; border-top: 1px solid #1a1a1a; background: black; }
 .footer-secret.show { opacity: 1; }
 </style>
 </head>
 
 <body>
 
-<div class="ems-lights"></div>
+<div class="medical-bg"></div>
 
 <div class="hero">
  <div class="hero-content">
-  <h1 id="mainTitle">MAVERICK STONE</h1>
+  <h1 id="mainTitle">Maverick Stone</h1>
   <div class="typewriter" id="type"></div>
-  <button onclick="document.getElementById('main').scrollIntoView()">Bewerbung öffnen</button>
+  <button onclick="document.getElementById('main').scrollIntoView()">Patientenakte öffnen</button>
  </div>
 </div>
 
 <section id="main">
 
-<h2>Personaldaten</h2>
-<div style="background: var(--card); padding: 30px; border-radius: 10px; margin-bottom: 50px;">
- <strong>Name:</strong> Julian (15 | 04. August -> 16) <br>
- <strong>Discord:</strong> agrar.julian <br>
- <strong>IC Name:</strong> Maverick Stone <br>
- <strong>Onlinezeiten:</strong> MO 2-3h | DI-DO 4-5h | FR-SA 7-10h | SO 10h+
+<h2>Personalien</h2>
+<div style="background: var(--card); padding: 40px; border-radius: 8px; margin-bottom: 60px; border-right: 4px solid var(--medical-blue);">
+ <strong>Name:</strong> Julian (15 Jahre | Geb. 04. August) <br>
+ <strong>Dienstname IC:</strong> Maverick Stone <br>
+ <strong>Discord-Kontakt:</strong> agrar.julian <br>
+ <strong>Verfügbarkeit:</strong> Täglich ab ca. 16:00 Uhr | Wochenende Open End
 </div>
 
-<h2>Dienstgrad-Struktur (EMS)</h2>
+<h2>Dienstgrade & Ärztliche Hierarchie</h2>
 <div class="rank-grid">
  <!-- Leaderschaft -->
- <div class="rank-card high-rank"><span>Rang 30</span> Generaldirektor</div>
+ <div class="rank-card high-rank"><span>Rang 30</span> Generaldirektor der Medizin</div>
  <div class="rank-card high-rank"><span>Rang 29</span> Ärztlicher Direktor</div>
  <div class="rank-card high-rank"><span>Rang 28</span> Stellv. Ärztlicher Direktor</div>
  
- <!-- Management -->
+ <!-- Medizinisches Management -->
  <div class="rank-card"><span>Rang 27</span> Leitender Oberarzt (Curator)</div>
- <div class="rank-card"><span>Rang 26</span> Oberarzt (Abteilungsleiter)</div>
- <div class="rank-card"><span>Rang 25</span> Facharzt</div>
- <div class="rank-card"><span>Rang 24</span> Assistenzarzt</div>
- <div class="rank-card"><span>Rang 23</span> Stationsleitung</div>
- <div class="rank-card"><span>Rang 22</span> Notfallsanitäterleitung</div>
- <div class="rank-card"><span>Rang 21</span> Rettungssanitäterleitung</div>
+ <div class="rank-card"><span>Rang 26</span> Oberarzt (Abteilungsleitung)</div>
+ <div class="rank-card"><span>Rang 25</span> Facharzt für Notfallmedizin</div>
+ <div class="rank-card"><span>Rang 24</span> Assistenzarzt im Dienst</div>
+ <div class="rank-card"><span>Rang 23</span> Stationsleitung Chirurgie</div>
+ <div class="rank-card"><span>Rang 22</span> Leitender Notfallsanitäter</div>
+ <div class="rank-card"><span>Rang 21</span> Rettungssanitäter Leitung</div>
 
- <!-- Spezialisten -->
- <div class="rank-card"><span>Rang 20</span> Personalmanagement Officer (HR)</div>
- <div class="rank-card"><span>Rang 19</span> Leitender Ausbilder</div>
- <div class="rank-card"><span>Rang 18</span> Community Manager</div>
- <div class="rank-card"><span>Rang 17</span> Einsatzleiter Kommunikation</div>
- <div class="rank-card"><span>Rang 16</span> Kriseninterventions-Spezialist</div>
- <div class="rank-card"><span>Rang 15</span> Chefarzt-Sekretär</div>
- <div class="rank-card"><span>Rang 14</span> HR Assistent</div>
- <div class="rank-card"><span>Rang 13</span> Ausbildung-Assistent</div>
+ <!-- Funktions-Spezialisten -->
+ <div class="rank-card"><span>Rang 20</span> Personalmanagement (HR)</div>
+ <div class="rank-card"><span>Rang 19</span> Leiter der Medizinschule</div>
+ <div class="rank-card"><span>Rang 18</span> Beauftragter für Öffentlichkeitsarbeit</div>
+ <div class="rank-card"><span>Rang 17</span> Einsatzleiter Koordination</div>
+ <div class="rank-card"><span>Rang 16</span> Fachkraft für Krisenmanagement</div>
+ <div class="rank-card"><span>Rang 15</span> Direktions-Sekretariat</div>
+ <div class="rank-card"><span>Rang 14</span> HR-Assistent</div>
+ <div class="rank-card"><span>Rang 13</span> Lehrbeauftragter</div>
 
- <!-- Filler Ränge -->
- <div class="rank-card"><span>Rang 12</span> Kommunikation-Trainee</div>
- <div class="rank-card"><span>Rang 11</span> Notfallsanitäter</div>
- <div class="rank-card"><span>Rang 10</span> Rettungssanitäter</div>
- <div class="rank-card"><span>Rang 09</span> Sanitäter</div>
+ <!-- Klinik-Personal -->
+ <div class="rank-card"><span>Rang 12</span> Dispatcher Trainee</div>
+ <div class="rank-card"><span>Rang 11</span> Examinierter Notfallsanitäter</div>
+ <div class="rank-card"><span>Rang 10</span> Examinierter Rettungssanitäter</div>
+ <div class="rank-card"><span>Rang 09</span> Qualifizierter Sanitäter</div>
 
- <!-- Basis -->
- <div class="rank-card"><span>Rang 08</span> Ober-Feuerwehrmann/Sanitäter</div>
- <div class="rank-card"><span>Rang 07</span> Haupt-Sanitäter</div>
- <div class="rank-card"><span>Rang 06</span> Erfahrener Sanitäter</div>
- <div class="rank-card"><span>Rang 05</span> Rettungshelfer</div>
+ <!-- Basisdienst -->
+ <div class="rank-card"><span>Rang 08</span> Erster Rettungshelfer</div>
+ <div class="rank-card"><span>Rang 07</span> Ober-Rettungshelfer</div>
+ <div class="rank-card"><span>Rang 06</span> Rettungshelfer</div>
+ <div class="rank-card"><span>Rang 05</span> Sanitäts-Anwärter</div>
 
- <!-- Ausbildung -->
- <div class="rank-card" style="opacity:0.7;"><span>Rang 04</span> Auszubildender (Stufe 3)</div>
- <div class="rank-card" style="opacity:0.7;"><span>Rang 03</span> Auszubildender (Stufe 2)</div>
- <div class="rank-card" style="opacity:0.7;"><span>Rang 02</span> Auszubildender (Stufe 1)</div>
- <div class="rank-card" style="opacity:0.7;"><span>Rang 01</span> Praktikant</div>
+ <!-- Ausbildungsweg -->
+ <div class="rank-card" style="opacity:0.7;"><span>Rang 04</span> Medizinstudent (Phase 3)</div>
+ <div class="rank-card" style="opacity:0.7;"><span>Rang 03</span> Medizinstudent (Phase 2)</div>
+ <div class="rank-card" style="opacity:0.7;"><span>Rang 02</span> Medizinstudent (Phase 1)</div>
+ <div class="rank-card" style="opacity:0.7;"><span>Rang 01</span> Medizinisches Praktikum</div>
 </div>
 
-<h2 style="margin-top:80px;">Fachabteilungen</h2>
+<h2 style="margin-top:90px;">Fachabteilungen der Klinik</h2>
 <div class="dept-grid">
  <div class="dept-card" onclick="showDept('HR')">HR Management</div>
- <div class="dept-card" onclick="showDept('AB')">Ausbildung</div>
- <div class="dept-card" onclick="showDept('CO')">Community</div>
+ <div class="dept-card" onclick="showDept('AB')">Ausbildungszentrum</div>
+ <div class="dept-card" onclick="showDept('CO')">Community PR</div>
  <div class="dept-card" onclick="showDept('KM')">Kommunikation</div>
 </div>
 
 <div class="dept-info-box" id="deptBox"></div>
 
-<h2 style="margin-top:80px;">Konzept & Vision</h2>
-<div style="background: var(--card); padding: 30px; border-radius: 10px;">
- <p><strong>Warum ich?</strong> Ich bringe tiefgreifende Erfahrung im Bereich Teamführung und medizinisches Verständnis mit. Mein Fokus liegt auf einer schnellen, professionellen Hilfeleistung für jeden Bürger von Los Santos.</p>
+<h2 style="margin-top:90px;">Klinik-Konzept & Motivation</h2>
+<div style="background: var(--card); padding: 40px; border-radius: 8px; border-left: 4px solid var(--medical-red);">
+ <p><strong>Warum Maverick Stone?</strong> Als erfahrener Mediziner steht für mich die Patientensicherheit an erster Stelle. Ich möchte eine Klinik führen, die auf modernsten Standards basiert und in der jeder Mitarbeiter seine Fachkenntnisse optimal einbringen kann.</p>
  <br>
- <p><strong>Ziele:</strong> Optimierung der Anfahrtszeiten, Stärkung der internen Harmonie durch das Community-Departement und eine lückenlose Ausbildung neuer Sanitäter.</p>
+ <p><strong>Ziele der Direktion:</strong> Einführung digitaler Patientenakten zur schnelleren Bearbeitung, Aufbau eines effizienten Kommunikationssystems (KK) für die Dienstplanung und die Imagepflege durch gezielte Community-Arbeit.</p>
 </div>
 
 </section>
 
 <div class="footer-secret" id="secret">
- <h2>Vielen Dank für das Vertrauen.</h2>
- <strong>Julian | Maverick Stone</strong>
+ <h2>Bereit für den Dienst am Bürger.</h2>
+ <p style="margin-top:10px; opacity:0.6;">Vielen Dank für Ihre Aufmerksamkeit.</p>
+ <br>
+ <strong style="color:var(--medical-red); font-size:1.5rem; letter-spacing:3px;">Maverick Stone</strong>
 </div>
 
 <script>
-/* TYPEWRITER */
-const textTyping="„Zwischen Leben und Tod zählt jede Sekunde.“";
+/* TYPEWRITER ANIMATION */
+const textTyping="„Kompetenz rettet Leben. Struktur sichert den Dienst.“";
 let charIndex=0;
 function type(){
  if(charIndex < textTyping.length){
   document.getElementById("type").innerHTML += textTyping[charIndex];
   charIndex++;
-  setTimeout(type, 80);
+  setTimeout(type, 70);
  }
 }
 type();
 
-/* ABTEILUNGEN */
+/* ABTEILUNGS LOGIK */
 const depts = {
- HR: "Human Resources: Verantwortlich für Personalakten, Sanktionen, Rang-Ups und die allgemeine Mitarbeiterzufriedenheit.",
- AB: "Ausbildungs-Abteilung: Führt medizinische Prüfungen, Fahrtrainings und medizinische Lehrgänge durch.",
- CO: "Community Abteilung: Planen von Events, Imagepflege des EMS und Ansprechpartner für zivile Anliegen.",
- KM: "Kommunikations Abteilung: Zuständig für die Leitstelle (Dispatch), die Dienstplaneinteilung und Funkkoordination."
+ HR: "<strong>Human Resources (Personalwesen):</strong> Fokus auf Mitarbeiterverwaltung, gerechte Beförderungen nach Leistungspunkten und die Bearbeitung interner Differenzen.",
+ AB: "<strong>Ausbildungszentrum:</strong> Zuständig für das Medizinstudium (Ränge 1-4), Fachweiterbildungen der Sanitäter und regelmäßige Reanimations-Prüfungen.",
+ CO: "<strong>Community & Öffentlichkeitsarbeit:</strong> Planung von Gesundheitstagen für Zivilisten, Blutspende-Events und die Kommunikation mit anderen Staatsfraktionen.",
+ KM: "<strong>Kommunikation & Koordination:</strong> Verwaltung der Leitstelle (Dispatches), Erstellung der wöchentlichen Dienstpläne und Optimierung der Funkwege."
 };
 
 function showDept(id){
  const box = document.getElementById('deptBox');
  box.style.display = 'block';
- box.innerHTML = `<h3>${id}</h3><p>${depts[id]}</p>`;
+ box.innerHTML = `<h3>Abteilung: ${id}</h3><p style="margin-top:10px;">${depts[id]}</p>`;
  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-/* SCROLL EFFECT */
+/* FOOTER APPEARANCE */
 window.addEventListener("scroll",()=>{
  if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 50){
   document.getElementById("secret").classList.add("show");
  }
 });
 
-/* COLOR FLASH TITLE */
+/* COLOR CYCLE TITLE */
 const title = document.getElementById('mainTitle');
 setInterval(() => {
- title.style.textShadow = title.style.textShadow.includes('204,0,0') ? '0 0 20px #0055ff' : '0 0 20px #cc0000';
-}, 1500);
+ title.style.textShadow = title.style.textShadow.includes('214,0,0') ? '0 0 25px #0062ff' : '0 0 25px #d60000';
+}, 2000);
 
 </script>
 
